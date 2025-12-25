@@ -43,6 +43,215 @@ body {
     overflow-x: hidden;
 }
 
+/* ===== Professional Animated Background ===== */
+.page-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+}
+
+/* Animated Gradient Mesh */
+.gradient-mesh {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 80% 50% at 20% 40%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 80% 20%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 60% at 70% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse 40% 50% at 10% 90%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
+    animation: meshMove 20s ease-in-out infinite;
+}
+
+@keyframes meshMove {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        filter: hue-rotate(0deg);
+    }
+    25% {
+        transform: translate(2%, 1%) scale(1.02);
+    }
+    50% {
+        transform: translate(-1%, 2%) scale(1);
+        filter: hue-rotate(10deg);
+    }
+    75% {
+        transform: translate(1%, -1%) scale(1.01);
+    }
+}
+
+/* Floating Orbs */
+.floating-orbs {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.5;
+    animation: float 15s ease-in-out infinite;
+}
+
+.orb-1 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%);
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 20s;
+}
+
+.orb-2 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.35) 0%, transparent 70%);
+    top: 60%;
+    right: 10%;
+    animation-delay: -5s;
+    animation-duration: 18s;
+}
+
+.orb-3 {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, transparent 70%);
+    bottom: 20%;
+    left: 30%;
+    animation-delay: -10s;
+    animation-duration: 22s;
+}
+
+.orb-4 {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, transparent 70%);
+    top: 30%;
+    right: 25%;
+    animation-delay: -7s;
+    animation-duration: 25s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(30px, -30px) rotate(5deg);
+    }
+    50% {
+        transform: translate(-20px, 20px) rotate(-5deg);
+    }
+    75% {
+        transform: translate(15px, 10px) rotate(3deg);
+    }
+}
+
+/* Grid Pattern Overlay */
+.grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at center, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at center, black 20%, transparent 70%);
+}
+
+/* Noise Texture */
+.noise-overlay {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+/* Animated Lines */
+.animated-lines {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0.1;
+}
+
+.line {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+    animation: linePulse 8s ease-in-out infinite;
+}
+
+.line:nth-child(1) { left: 10%; animation-delay: 0s; }
+.line:nth-child(2) { left: 25%; animation-delay: -2s; }
+.line:nth-child(3) { left: 50%; animation-delay: -4s; }
+.line:nth-child(4) { left: 75%; animation-delay: -6s; }
+.line:nth-child(5) { left: 90%; animation-delay: -1s; }
+
+@keyframes linePulse {
+    0%, 100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(100%);
+    }
+}
+
+/* Glowing Stars/Particles */
+.particles {
+    position: absolute;
+    inset: 0;
+}
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--color-accent), 0 0 20px var(--color-accent);
+    animation: twinkle 4s ease-in-out infinite;
+}
+
+.particle:nth-child(1) { top: 15%; left: 20%; animation-delay: 0s; }
+.particle:nth-child(2) { top: 25%; left: 80%; animation-delay: -1s; }
+.particle:nth-child(3) { top: 45%; left: 15%; animation-delay: -2s; }
+.particle:nth-child(4) { top: 65%; left: 70%; animation-delay: -0.5s; }
+.particle:nth-child(5) { top: 75%; left: 35%; animation-delay: -3s; }
+.particle:nth-child(6) { top: 85%; left: 85%; animation-delay: -1.5s; }
+.particle:nth-child(7) { top: 35%; left: 55%; animation-delay: -2.5s; }
+.particle:nth-child(8) { top: 55%; left: 45%; animation-delay: -3.5s; }
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* Vignette Effect */
+.vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(15, 23, 42, 0.8) 100%);
+    pointer-events: none;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -144,9 +353,11 @@ img {
 }
 
 .navbar.scrolled {
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-md);
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(51, 65, 85, 0.3);
 }
 
 .nav-container {
@@ -262,33 +473,11 @@ img {
     position: relative;
     padding: 6rem 1.5rem 4rem;
     overflow: hidden;
+    background: transparent;
 }
 
 .hero-bg-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-    mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
-    -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
-    animation: pulse 15s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(5%, 5%); }
+    display: none;
 }
 
 .hero-content {
@@ -401,7 +590,10 @@ img {
 /* ===== About Section ===== */
 .about {
     padding: 6rem 0;
-    background: var(--color-bg-secondary);
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
 }
 
 .about-content {
@@ -425,7 +617,10 @@ img {
     display: flex;
     gap: 1rem;
     padding: 1.25rem;
-    background: var(--color-bg-primary);
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(51, 65, 85, 0.3);
     border-radius: 12px;
     margin-bottom: 1rem;
     transition: transform var(--transition-base);
@@ -477,7 +672,10 @@ img {
     display: flex;
     gap: 1rem;
     padding: 1.5rem;
-    background: var(--color-bg-primary);
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(51, 65, 85, 0.3);
     border-radius: 12px;
     border-left: 4px solid var(--color-accent);
 }
@@ -510,6 +708,8 @@ img {
 /* ===== Projects Section ===== */
 .projects {
     padding: 6rem 0;
+    background: transparent;
+    position: relative;
 }
 
 .projects-grid {
@@ -519,11 +719,13 @@ img {
 }
 
 .project-card {
-    background: var(--color-bg-secondary);
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 16px;
     padding: 2rem;
     transition: all var(--transition-base);
-    border: 1px solid var(--color-border);
+    border: 1px solid rgba(51, 65, 85, 0.5);
     position: relative;
     overflow: hidden;
 }
@@ -612,7 +814,10 @@ img {
 /* ===== Skills Section ===== */
 .skills {
     padding: 6rem 0;
-    background: var(--color-bg-secondary);
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
 }
 
 .skills-content {
@@ -622,7 +827,10 @@ img {
 }
 
 .skills-category {
-    background: var(--color-bg-primary);
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(51, 65, 85, 0.5);
     border-radius: 16px;
     padding: 2rem;
 }
@@ -670,6 +878,8 @@ img {
 /* ===== Contact Section ===== */
 .contact {
     padding: 6rem 0;
+    background: transparent;
+    position: relative;
 }
 
 .contact-content {
@@ -697,10 +907,12 @@ img {
     align-items: center;
     gap: 1rem;
     padding: 1.25rem 1.5rem;
-    background: var(--color-bg-secondary);
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 12px;
     transition: all var(--transition-base);
-    border: 1px solid var(--color-border);
+    border: 1px solid rgba(51, 65, 85, 0.5);
 }
 
 .contact-method:hover {
@@ -741,8 +953,11 @@ img {
 /* ===== Footer ===== */
 .footer {
     padding: 3rem 0;
-    background: var(--color-bg-secondary);
-    border-top: 1px solid var(--color-border);
+    background: rgba(30, 41, 59, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(51, 65, 85, 0.5);
+    position: relative;
 }
 
 .footer-content {
