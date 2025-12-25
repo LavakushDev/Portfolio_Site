@@ -659,31 +659,44 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* Reduce/disable heavy animations on mobile for better performance */
+    /* Optimized animations for mobile - lighter but still visible */
     .gradient-mesh {
-        animation: none;
+        animation: terrainShift 40s ease-in-out infinite;
     }
 
     .orb {
-        filter: blur(40px);
-        animation: none;
-        opacity: 0.25;
+        filter: blur(50px);
+        animation: mapPulse 30s ease-in-out infinite;
+        opacity: 0.2;
     }
 
     .animated-lines {
-        display: none;
+        opacity: 0.1;
+    }
+
+    .line {
+        animation: contourFlow 20s ease-in-out infinite;
     }
 
     .particles {
+        opacity: 0.6;
+    }
+
+    .particle {
+        animation: markerPulse 5s ease-in-out infinite;
+    }
+
+    /* Hide some particles on mobile */
+    .particle:nth-child(n+5) {
         display: none;
     }
 
     .earth-container {
         width: 150px;
         height: 150px;
-        right: -10%;
+        right: -5%;
         top: 15%;
-        opacity: 0.3;
+        opacity: 0.4;
     }
 
     .earth {
@@ -692,36 +705,70 @@ body {
     }
 
     .earth-sphere {
-        animation: earthRotate 120s linear infinite;
-        box-shadow: none;
+        animation: earthRotate 90s linear infinite;
+        box-shadow:
+            inset -15px -15px 30px rgba(0, 0, 0, 0.5),
+            0 0 30px rgba(0, 119, 182, 0.2);
     }
 
     .earth-glow {
-        display: none;
+        opacity: 0.4;
+        animation: earthGlow 6s ease-in-out infinite;
     }
 
     .satellite-orbit {
+        opacity: 0.4;
+    }
+
+    .orbit-1 {
+        width: 180px;
+        height: 180px;
+        animation: orbitRotate 30s linear infinite;
+    }
+
+    .orbit-2 {
         display: none;
     }
 
     .compass-rose {
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
         left: 2%;
         bottom: 3%;
-        opacity: 0.12;
-        animation: none;
+        opacity: 0.2;
+        animation: compassPulse 8s ease-in-out infinite;
     }
 
     .compass-svg {
-        animation: none;
+        animation: compassRotate 180s linear infinite;
     }
 
     .coord-labels {
+        opacity: 0.5;
+    }
+
+    .coord {
+        font-size: 0.6rem;
+        animation: coordFade 12s ease-in-out infinite;
+    }
+
+    /* Hide some coords on mobile */
+    .coord-3, .coord-4 {
         display: none;
     }
 
     .map-pins {
+        opacity: 0.5;
+    }
+
+    .map-pin {
+        width: 20px;
+        height: 20px;
+        animation: pinBounce 3s ease-in-out infinite;
+    }
+
+    /* Hide one pin on mobile */
+    .pin-3 {
         display: none;
     }
 
@@ -738,30 +785,77 @@ body {
     }
 }
 
-/* Small phones - minimal effects */
+/* Small phones - lighter effects but still animated */
 @media (max-width: 480px) {
     .orb {
+        filter: blur(40px);
+        opacity: 0.15;
+        animation: mapPulse 40s ease-in-out infinite;
+    }
+
+    /* Show only 2 orbs */
+    .orb-3, .orb-4 {
         display: none;
     }
 
     .earth-container {
+        width: 120px;
+        height: 120px;
+        right: -15%;
+        top: 10%;
+        opacity: 0.3;
+    }
+
+    .earth {
+        width: 80px;
+        height: 80px;
+    }
+
+    .earth-sphere {
+        animation: earthRotate 120s linear infinite;
+    }
+
+    .earth-glow, .earth-grid {
+        display: none;
+    }
+
+    .satellite-orbit {
         display: none;
     }
 
     .compass-rose {
-        display: none;
+        width: 35px;
+        height: 35px;
+        opacity: 0.15;
     }
 
     .grid-pattern {
         opacity: 0.3;
     }
 
+    .animated-lines {
+        opacity: 0.08;
+    }
+
+    /* Show only 2 particles */
+    .particle:nth-child(n+3) {
+        display: none;
+    }
+
+    .coord-labels {
+        display: none;
+    }
+
+    .map-pins {
+        display: none;
+    }
+
     .about,
     .skills,
     .project-card,
     .skills-category {
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
     }
 }
 
