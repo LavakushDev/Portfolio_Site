@@ -66,6 +66,11 @@ body {
     z-index: -1;
     overflow: hidden;
     background: linear-gradient(180deg, #0a1628 0%, #0d1f3c 30%, #0a2540 60%, #071a2e 100%);
+    /* Hardware acceleration */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 /* Topographic Contour Lines */
@@ -82,6 +87,8 @@ body {
         /* Satellite blue glow */
         radial-gradient(ellipse 40% 30% at 50% 50%, rgba(76, 201, 240, 0.1) 0%, transparent 50%);
     animation: terrainShift 25s ease-in-out infinite;
+    will-change: transform, opacity;
+    transform: translateZ(0);
 }
 
 @keyframes terrainShift {
@@ -114,6 +121,10 @@ body {
     filter: blur(80px);
     opacity: 0.4;
     animation: mapPulse 20s ease-in-out infinite;
+    /* Hardware acceleration */
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 
 /* Water body */
@@ -233,6 +244,8 @@ body {
     height: 2px;
     width: 100%;
     animation: contourFlow 12s ease-in-out infinite;
+    will-change: transform, opacity;
+    transform: translateZ(0);
 }
 
 /* Horizontal contour lines like elevation */
@@ -265,6 +278,8 @@ body {
     height: 8px;
     border-radius: 50%;
     animation: markerPulse 3s ease-in-out infinite;
+    will-change: transform, opacity;
+    transform: translateZ(0);
 }
 
 /* Different marker types */
@@ -344,6 +359,8 @@ body {
         inset -30px -30px 60px rgba(0, 0, 0, 0.6),
         inset 10px 10px 40px rgba(76, 201, 240, 0.2),
         0 0 60px rgba(0, 119, 182, 0.3);
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 @keyframes earthRotate {
@@ -425,6 +442,7 @@ body {
     border: 1px dashed rgba(76, 201, 240, 0.3);
     border-radius: 50%;
     transform: translate(-50%, -50%);
+    will-change: transform;
 }
 
 .orbit-1 {
@@ -601,29 +619,172 @@ body {
     .orbit-2 { width: 280px; height: 280px; }
 }
 
-@media (max-width: 768px) {
+/* Tablet/iPad optimizations */
+@media (max-width: 1024px) {
+    .orb {
+        filter: blur(60px);
+        opacity: 0.3;
+    }
+
+    .gradient-mesh {
+        animation-duration: 40s;
+    }
+
     .earth-container {
-        width: 200px;
-        height: 200px;
-        right: -5%;
-        top: 20%;
-        opacity: 0.5;
+        width: 250px;
+        height: 250px;
+        opacity: 0.6;
     }
+
     .earth {
-        width: 120px;
-        height: 120px;
+        width: 150px;
+        height: 150px;
     }
-    .orbit-1 { width: 160px; height: 160px; }
-    .orbit-2 { width: 180px; height: 180px; }
+
+    .earth-sphere {
+        animation-duration: 90s;
+    }
+
+    .particle {
+        animation-duration: 5s;
+    }
+
+    .map-pin {
+        opacity: 0.4;
+    }
+
+    .coord {
+        opacity: 0.25;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Reduce/disable heavy animations on mobile for better performance */
+    .gradient-mesh {
+        animation: none;
+    }
+
+    .orb {
+        filter: blur(40px);
+        animation: none;
+        opacity: 0.25;
+    }
+
+    .animated-lines {
+        display: none;
+    }
+
+    .particles {
+        display: none;
+    }
+
+    .earth-container {
+        width: 150px;
+        height: 150px;
+        right: -10%;
+        top: 15%;
+        opacity: 0.3;
+    }
+
+    .earth {
+        width: 100px;
+        height: 100px;
+    }
+
+    .earth-sphere {
+        animation: earthRotate 120s linear infinite;
+        box-shadow: none;
+    }
+
+    .earth-glow {
+        display: none;
+    }
+
+    .satellite-orbit {
+        display: none;
+    }
+
     .compass-rose {
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         left: 2%;
         bottom: 3%;
-        opacity: 0.15;
+        opacity: 0.12;
+        animation: none;
     }
-    .coord { font-size: 0.6rem; opacity: 0.3; }
-    .map-pin { width: 20px; height: 20px; opacity: 0.5; }
+
+    .compass-svg {
+        animation: none;
+    }
+
+    .coord-labels {
+        display: none;
+    }
+
+    .map-pins {
+        display: none;
+    }
+
+    /* Reduce backdrop blur on mobile */
+    .navbar.scrolled {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    .about,
+    .skills {
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+}
+
+/* Small phones - minimal effects */
+@media (max-width: 480px) {
+    .orb {
+        display: none;
+    }
+
+    .earth-container {
+        display: none;
+    }
+
+    .compass-rose {
+        display: none;
+    }
+
+    .grid-pattern {
+        opacity: 0.3;
+    }
+
+    .about,
+    .skills,
+    .project-card,
+    .skills-category {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .gradient-mesh,
+    .orb,
+    .line,
+    .particle,
+    .earth-sphere,
+    .satellite-orbit,
+    .compass-svg,
+    .map-pin {
+        animation: none !important;
+    }
 }
 
 a {
