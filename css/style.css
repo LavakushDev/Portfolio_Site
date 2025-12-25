@@ -298,6 +298,333 @@ body {
     pointer-events: none;
 }
 
+/* ===== GIS Components ===== */
+
+/* Earth Globe Container */
+.earth-container {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 400px;
+    height: 400px;
+    pointer-events: none;
+}
+
+.earth {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.earth-glow {
+    position: absolute;
+    inset: -30px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 212, 170, 0.15) 0%, rgba(76, 201, 240, 0.1) 40%, transparent 70%);
+    animation: earthGlow 4s ease-in-out infinite;
+}
+
+@keyframes earthGlow {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+}
+
+.earth-sphere {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0a2540 0%, #0d3052 30%, #0077b6 60%, #0a1628 100%);
+    overflow: hidden;
+    animation: earthRotate 60s linear infinite;
+    box-shadow:
+        inset -30px -30px 60px rgba(0, 0, 0, 0.6),
+        inset 10px 10px 40px rgba(76, 201, 240, 0.2),
+        0 0 60px rgba(0, 119, 182, 0.3);
+}
+
+@keyframes earthRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Continents */
+.continent {
+    position: absolute;
+    background: linear-gradient(135deg, #2d6a4f 0%, #40916c 50%, #95d5b2 100%);
+    border-radius: 40% 60% 50% 70% / 50% 40% 60% 50%;
+    opacity: 0.7;
+}
+
+.continent-1 {
+    width: 80px;
+    height: 60px;
+    top: 30%;
+    left: 20%;
+    transform: rotate(-15deg);
+}
+
+.continent-2 {
+    width: 50px;
+    height: 70px;
+    top: 45%;
+    right: 25%;
+    border-radius: 30% 70% 40% 60% / 60% 30% 70% 40%;
+    transform: rotate(20deg);
+}
+
+.continent-3 {
+    width: 40px;
+    height: 30px;
+    bottom: 25%;
+    left: 40%;
+    border-radius: 50% 50% 60% 40% / 40% 60% 40% 60%;
+}
+
+/* Earth Grid Lines */
+.earth-grid {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.latitude, .longitude {
+    position: absolute;
+    border: 1px solid rgba(0, 212, 170, 0.15);
+}
+
+.latitude {
+    width: 100%;
+    height: 0;
+    border-radius: 50%;
+}
+
+.lat-1 { top: 25%; border-width: 1px; }
+.lat-2 { top: 50%; border-width: 1.5px; border-color: rgba(0, 212, 170, 0.25); }
+.lat-3 { top: 75%; border-width: 1px; }
+
+.longitude {
+    width: 0;
+    height: 100%;
+    left: 50%;
+}
+
+.lng-1 { transform: translateX(-50%) rotate(0deg); }
+.lng-2 { transform: translateX(-50%) rotate(60deg); }
+.lng-3 { transform: translateX(-50%) rotate(-60deg); }
+
+/* Satellite Orbits */
+.satellite-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px dashed rgba(76, 201, 240, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.orbit-1 {
+    width: 320px;
+    height: 320px;
+    animation: orbitRotate 20s linear infinite;
+    transform: translate(-50%, -50%) rotateX(60deg) rotateY(20deg);
+}
+
+.orbit-2 {
+    width: 360px;
+    height: 360px;
+    animation: orbitRotate 30s linear infinite reverse;
+    transform: translate(-50%, -50%) rotateX(70deg) rotateY(-30deg);
+}
+
+@keyframes orbitRotate {
+    0% { transform: translate(-50%, -50%) rotateZ(0deg); }
+    100% { transform: translate(-50%, -50%) rotateZ(360deg); }
+}
+
+.satellite {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #4cc9f0;
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 15px #4cc9f0, 0 0 30px rgba(76, 201, 240, 0.5);
+}
+
+.orbit-2 .satellite {
+    background: #00d4aa;
+    box-shadow: 0 0 15px #00d4aa, 0 0 30px rgba(0, 212, 170, 0.5);
+}
+
+/* Compass Rose */
+.compass-rose {
+    position: absolute;
+    left: 5%;
+    bottom: 10%;
+    width: 120px;
+    height: 120px;
+    pointer-events: none;
+    animation: compassPulse 6s ease-in-out infinite;
+}
+
+@keyframes compassPulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.05); }
+}
+
+.compass-svg {
+    width: 100%;
+    height: 100%;
+    animation: compassRotate 120s linear infinite;
+}
+
+@keyframes compassRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Coordinate Labels */
+.coord-labels {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.coord {
+    position: absolute;
+    font-family: 'Space Grotesk', monospace;
+    font-size: 0.7rem;
+    color: rgba(0, 212, 170, 0.4);
+    letter-spacing: 0.05em;
+    animation: coordFade 8s ease-in-out infinite;
+}
+
+.coord-1 {
+    top: 15%;
+    left: 8%;
+    animation-delay: 0s;
+}
+
+.coord-2 {
+    top: 30%;
+    right: 12%;
+    color: rgba(76, 201, 240, 0.4);
+    animation-delay: -2s;
+}
+
+.coord-3 {
+    bottom: 25%;
+    left: 15%;
+    color: rgba(64, 145, 108, 0.4);
+    animation-delay: -4s;
+}
+
+.coord-4 {
+    bottom: 15%;
+    right: 8%;
+    animation-delay: -6s;
+}
+
+@keyframes coordFade {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+}
+
+/* Map Pins */
+.map-pins {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.map-pin {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    animation: pinBounce 2s ease-in-out infinite;
+}
+
+.map-pin svg {
+    width: 100%;
+    height: 100%;
+}
+
+.pin-1 {
+    top: 20%;
+    left: 25%;
+    color: #ff6b6b;
+    filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.6));
+    animation-delay: 0s;
+}
+
+.pin-2 {
+    top: 60%;
+    left: 75%;
+    color: #00d4aa;
+    filter: drop-shadow(0 0 8px rgba(0, 212, 170, 0.6));
+    animation-delay: -0.5s;
+}
+
+.pin-3 {
+    bottom: 30%;
+    left: 45%;
+    color: #ffd93d;
+    filter: drop-shadow(0 0 8px rgba(255, 217, 61, 0.6));
+    animation-delay: -1s;
+}
+
+@keyframes pinBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Responsive adjustments for GIS components */
+@media (max-width: 1200px) {
+    .earth-container {
+        width: 300px;
+        height: 300px;
+        right: 2%;
+    }
+    .earth {
+        width: 180px;
+        height: 180px;
+    }
+    .orbit-1 { width: 240px; height: 240px; }
+    .orbit-2 { width: 280px; height: 280px; }
+}
+
+@media (max-width: 768px) {
+    .earth-container {
+        width: 200px;
+        height: 200px;
+        right: -5%;
+        top: 20%;
+        opacity: 0.5;
+    }
+    .earth {
+        width: 120px;
+        height: 120px;
+    }
+    .orbit-1 { width: 160px; height: 160px; }
+    .orbit-2 { width: 180px; height: 180px; }
+    .compass-rose {
+        width: 80px;
+        height: 80px;
+        left: 3%;
+        bottom: 5%;
+        opacity: 0.4;
+    }
+    .coord { font-size: 0.6rem; opacity: 0.3; }
+    .map-pin { width: 20px; height: 20px; opacity: 0.5; }
+}
+
 a {
     text-decoration: none;
     color: inherit;
