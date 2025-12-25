@@ -1,23 +1,36 @@
-/* ===== CSS Variables ===== */
+/* ===== CSS Variables - GIS Theme ===== */
 :root {
-    --color-bg-primary: #0f172a;
-    --color-bg-secondary: #1e293b;
-    --color-bg-tertiary: #334155;
-    --color-text-primary: #f8fafc;
-    --color-text-secondary: #94a3b8;
-    --color-text-muted: #64748b;
-    --color-accent: #3b82f6;
-    --color-accent-hover: #2563eb;
-    --color-success: #10b981;
-    --color-warning: #f59e0b;
-    --color-error: #ef4444;
-    --color-border: #334155;
+    /* Earth & Terrain Colors */
+    --color-bg-primary: #0a1628;
+    --color-bg-secondary: #122035;
+    --color-bg-tertiary: #1a2d47;
+    --color-text-primary: #e8f4f8;
+    --color-text-secondary: #8fa8b8;
+    --color-text-muted: #5a7a8a;
+    /* GIS Accent Colors */
+    --color-accent: #00d4aa;
+    --color-accent-hover: #00b894;
+    --color-water: #0077b6;
+    --color-land: #2d6a4f;
+    --color-terrain: #40916c;
+    --color-elevation: #95d5b2;
+    --color-marker: #ff6b6b;
+    --color-route: #ffd93d;
+    --color-satellite: #4cc9f0;
+    --color-success: #40916c;
+    --color-warning: #ffd93d;
+    --color-error: #ff6b6b;
+    --color-border: #1a3a5c;
+    /* Coordinate Colors */
+    --color-lat: #00d4aa;
+    --color-lng: #4cc9f0;
     --font-primary: 'Space Grotesk', sans-serif;
     --font-secondary: 'Inter', sans-serif;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
     --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 30px rgba(0, 212, 170, 0.3);
     --transition-fast: 150ms ease;
     --transition-base: 300ms ease;
     --transition-slow: 500ms ease;
@@ -43,7 +56,7 @@ body {
     overflow-x: hidden;
 }
 
-/* ===== Professional Animated Background ===== */
+/* ===== GIS Themed Animated Background ===== */
 .page-background {
     position: fixed;
     top: 0;
@@ -52,39 +65,43 @@ body {
     height: 100%;
     z-index: -1;
     overflow: hidden;
-    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+    background: linear-gradient(180deg, #0a1628 0%, #0d1f3c 30%, #0a2540 60%, #071a2e 100%);
 }
 
-/* Animated Gradient Mesh */
+/* Topographic Contour Lines */
 .gradient-mesh {
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse 80% 50% at 20% 40%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse 60% 40% at 80% 20%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
-        radial-gradient(ellipse 50% 60% at 70% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
-        radial-gradient(ellipse 40% 50% at 10% 90%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
-    animation: meshMove 20s ease-in-out infinite;
+        /* Water/Ocean gradients */
+        radial-gradient(ellipse 120% 60% at 90% 100%, rgba(0, 119, 182, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse 80% 40% at 10% 80%, rgba(0, 119, 182, 0.15) 0%, transparent 40%),
+        /* Land/Terrain gradients */
+        radial-gradient(ellipse 60% 50% at 30% 30%, rgba(45, 106, 79, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 40% at 70% 20%, rgba(64, 145, 108, 0.15) 0%, transparent 45%),
+        /* Satellite blue glow */
+        radial-gradient(ellipse 40% 30% at 50% 50%, rgba(76, 201, 240, 0.1) 0%, transparent 50%);
+    animation: terrainShift 25s ease-in-out infinite;
 }
 
-@keyframes meshMove {
+@keyframes terrainShift {
     0%, 100% {
         transform: translate(0, 0) scale(1);
-        filter: hue-rotate(0deg);
+        opacity: 1;
     }
     25% {
-        transform: translate(2%, 1%) scale(1.02);
+        transform: translate(1%, 0.5%) scale(1.01);
     }
     50% {
-        transform: translate(-1%, 2%) scale(1);
-        filter: hue-rotate(10deg);
+        transform: translate(-0.5%, 1%) scale(1);
+        opacity: 0.9;
     }
     75% {
-        transform: translate(1%, -1%) scale(1.01);
+        transform: translate(0.5%, -0.5%) scale(1.005);
     }
 }
 
-/* Floating Orbs */
+/* Floating Map Elements */
 .floating-orbs {
     position: absolute;
     inset: 0;
@@ -94,49 +111,73 @@ body {
 .orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.5;
-    animation: float 15s ease-in-out infinite;
+    filter: blur(80px);
+    opacity: 0.4;
+    animation: mapPulse 20s ease-in-out infinite;
 }
 
+/* Water body */
 .orb-1 {
+    width: 500px;
+    height: 300px;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    background: radial-gradient(ellipse, rgba(0, 119, 182, 0.4) 0%, rgba(76, 201, 240, 0.1) 50%, transparent 70%);
+    bottom: 0;
+    right: -10%;
+    animation-delay: 0s;
+    animation-duration: 30s;
+}
+
+/* Terrain/Land mass */
+.orb-2 {
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(45, 106, 79, 0.35) 0%, rgba(64, 145, 108, 0.15) 40%, transparent 70%);
     top: 10%;
-    left: 10%;
-    animation-delay: 0s;
-    animation-duration: 20s;
+    left: 5%;
+    animation-delay: -8s;
+    animation-duration: 25s;
 }
 
-.orb-2 {
+/* Satellite highlight */
+.orb-3 {
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.35) 0%, transparent 70%);
-    top: 60%;
-    right: 10%;
-    animation-delay: -5s;
-    animation-duration: 18s;
-}
-
-.orb-3 {
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, transparent 70%);
-    bottom: 20%;
-    left: 30%;
-    animation-delay: -10s;
+    background: radial-gradient(circle, rgba(0, 212, 170, 0.3) 0%, rgba(76, 201, 240, 0.1) 40%, transparent 70%);
+    top: 40%;
+    right: 15%;
+    animation-delay: -12s;
     animation-duration: 22s;
 }
 
+/* Elevation glow */
 .orb-4 {
     width: 350px;
     height: 350px;
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, transparent 70%);
-    top: 30%;
-    right: 25%;
-    animation-delay: -7s;
-    animation-duration: 25s;
+    background: radial-gradient(circle, rgba(149, 213, 178, 0.25) 0%, rgba(64, 145, 108, 0.1) 40%, transparent 70%);
+    bottom: 20%;
+    left: 25%;
+    animation-delay: -5s;
+    animation-duration: 28s;
+}
+
+@keyframes mapPulse {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.4;
+    }
+    25% {
+        transform: translate(20px, -10px) scale(1.05);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-15px, 15px) scale(0.95);
+        opacity: 0.35;
+    }
+    75% {
+        transform: translate(10px, 5px) scale(1.02);
+        opacity: 0.45;
+    }
 }
 
 @keyframes float {
@@ -154,16 +195,20 @@ body {
     }
 }
 
-/* Grid Pattern Overlay */
+/* Coordinate Grid Pattern */
 .grid-pattern {
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 80% 60% at center, black 20%, transparent 70%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 60% at center, black 20%, transparent 70%);
+        /* Major grid lines (like lat/long) */
+        linear-gradient(rgba(0, 212, 170, 0.08) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(0, 212, 170, 0.08) 2px, transparent 2px),
+        /* Minor grid lines */
+        linear-gradient(rgba(76, 201, 240, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(76, 201, 240, 0.03) 1px, transparent 1px);
+    background-size: 200px 200px, 200px 200px, 40px 40px, 40px 40px;
+    mask-image: radial-gradient(ellipse 90% 70% at center, black 30%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at center, black 30%, transparent 70%);
 }
 
 /* Noise Texture */
@@ -175,40 +220,40 @@ body {
     pointer-events: none;
 }
 
-/* Animated Lines */
+/* Topographic Contour Lines */
 .animated-lines {
     position: absolute;
     inset: 0;
     overflow: hidden;
-    opacity: 0.1;
+    opacity: 0.15;
 }
 
 .line {
     position: absolute;
-    width: 1px;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
-    animation: linePulse 8s ease-in-out infinite;
+    height: 2px;
+    width: 100%;
+    animation: contourFlow 12s ease-in-out infinite;
 }
 
-.line:nth-child(1) { left: 10%; animation-delay: 0s; }
-.line:nth-child(2) { left: 25%; animation-delay: -2s; }
-.line:nth-child(3) { left: 50%; animation-delay: -4s; }
-.line:nth-child(4) { left: 75%; animation-delay: -6s; }
-.line:nth-child(5) { left: 90%; animation-delay: -1s; }
+/* Horizontal contour lines like elevation */
+.line:nth-child(1) { top: 15%; background: linear-gradient(90deg, transparent 0%, #00d4aa 20%, #40916c 50%, #00d4aa 80%, transparent 100%); animation-delay: 0s; }
+.line:nth-child(2) { top: 35%; background: linear-gradient(90deg, transparent 0%, #4cc9f0 25%, #0077b6 50%, #4cc9f0 75%, transparent 100%); animation-delay: -3s; }
+.line:nth-child(3) { top: 55%; background: linear-gradient(90deg, transparent 0%, #95d5b2 30%, #2d6a4f 50%, #95d5b2 70%, transparent 100%); animation-delay: -6s; }
+.line:nth-child(4) { top: 75%; background: linear-gradient(90deg, transparent 0%, #00d4aa 15%, #40916c 50%, #00d4aa 85%, transparent 100%); animation-delay: -9s; }
+.line:nth-child(5) { top: 90%; background: linear-gradient(90deg, transparent 0%, #0077b6 20%, #4cc9f0 50%, #0077b6 80%, transparent 100%); animation-delay: -2s; }
 
-@keyframes linePulse {
+@keyframes contourFlow {
     0%, 100% {
-        opacity: 0;
-        transform: translateY(-100%);
+        opacity: 0.3;
+        transform: scaleX(0.8) translateX(-10%);
     }
     50% {
-        opacity: 1;
-        transform: translateY(100%);
+        opacity: 0.8;
+        transform: scaleX(1) translateX(0);
     }
 }
 
-/* Glowing Stars/Particles */
+/* Map Markers/Waypoints */
 .particles {
     position: absolute;
     inset: 0;
@@ -216,31 +261,32 @@ body {
 
 .particle {
     position: absolute;
-    width: 2px;
-    height: 2px;
-    background: var(--color-accent);
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    box-shadow: 0 0 10px var(--color-accent), 0 0 20px var(--color-accent);
-    animation: twinkle 4s ease-in-out infinite;
+    animation: markerPulse 3s ease-in-out infinite;
 }
 
-.particle:nth-child(1) { top: 15%; left: 20%; animation-delay: 0s; }
-.particle:nth-child(2) { top: 25%; left: 80%; animation-delay: -1s; }
-.particle:nth-child(3) { top: 45%; left: 15%; animation-delay: -2s; }
-.particle:nth-child(4) { top: 65%; left: 70%; animation-delay: -0.5s; }
-.particle:nth-child(5) { top: 75%; left: 35%; animation-delay: -3s; }
-.particle:nth-child(6) { top: 85%; left: 85%; animation-delay: -1.5s; }
-.particle:nth-child(7) { top: 35%; left: 55%; animation-delay: -2.5s; }
-.particle:nth-child(8) { top: 55%; left: 45%; animation-delay: -3.5s; }
+/* Different marker types */
+.particle:nth-child(1) { top: 15%; left: 20%; background: #ff6b6b; box-shadow: 0 0 15px #ff6b6b, 0 0 30px rgba(255, 107, 107, 0.5); animation-delay: 0s; }
+.particle:nth-child(2) { top: 25%; left: 80%; background: #00d4aa; box-shadow: 0 0 15px #00d4aa, 0 0 30px rgba(0, 212, 170, 0.5); animation-delay: -0.5s; }
+.particle:nth-child(3) { top: 45%; left: 15%; background: #4cc9f0; box-shadow: 0 0 15px #4cc9f0, 0 0 30px rgba(76, 201, 240, 0.5); animation-delay: -1s; }
+.particle:nth-child(4) { top: 65%; left: 70%; background: #ffd93d; box-shadow: 0 0 15px #ffd93d, 0 0 30px rgba(255, 217, 61, 0.5); animation-delay: -1.5s; }
+.particle:nth-child(5) { top: 75%; left: 35%; background: #40916c; box-shadow: 0 0 15px #40916c, 0 0 30px rgba(64, 145, 108, 0.5); animation-delay: -2s; }
+.particle:nth-child(6) { top: 85%; left: 85%; background: #0077b6; box-shadow: 0 0 15px #0077b6, 0 0 30px rgba(0, 119, 182, 0.5); animation-delay: -2.5s; }
+.particle:nth-child(7) { top: 35%; left: 55%; background: #ff6b6b; box-shadow: 0 0 15px #ff6b6b, 0 0 30px rgba(255, 107, 107, 0.5); animation-delay: -1s; }
+.particle:nth-child(8) { top: 55%; left: 45%; background: #00d4aa; box-shadow: 0 0 15px #00d4aa, 0 0 30px rgba(0, 212, 170, 0.5); animation-delay: -0.5s; }
 
-@keyframes twinkle {
+@keyframes markerPulse {
     0%, 100% {
-        opacity: 0.2;
+        opacity: 0.6;
         transform: scale(1);
+        box-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
     }
     50% {
         opacity: 1;
-        transform: scale(1.5);
+        transform: scale(1.3);
+        box-shadow: 0 0 25px currentColor, 0 0 50px currentColor;
     }
 }
 
@@ -285,7 +331,7 @@ img {
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-accent) 100%);
+    background: linear-gradient(135deg, #00d4aa 0%, #4cc9f0 50%, #0077b6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -314,14 +360,32 @@ img {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+    background: linear-gradient(135deg, #00d4aa 0%, #00b894 50%, #0077b6 100%);
     color: var(--color-text-primary);
-    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 212, 170, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: scanLine 3s ease-in-out infinite;
+}
+
+@keyframes scanLine {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+    box-shadow: 0 8px 30px rgba(0, 212, 170, 0.5);
 }
 
 .btn-secondary {
@@ -373,7 +437,10 @@ img {
     font-family: var(--font-primary);
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color-accent);
+    background: linear-gradient(135deg, #00d4aa, #4cc9f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .nav-menu {
@@ -397,7 +464,7 @@ img {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--color-accent);
+    background: linear-gradient(90deg, #00d4aa, #4cc9f0);
     transition: width var(--transition-base);
 }
 
@@ -501,17 +568,27 @@ img {
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #00d4aa 30%, #4cc9f0 60%, #ffffff 100%);
+    background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: geoGlow 6s ease-in-out infinite;
+}
+
+@keyframes geoGlow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 .hero-title {
     font-family: var(--font-primary);
     font-size: clamp(1.5rem, 4vw, 2.5rem);
     font-weight: 600;
-    color: var(--color-accent);
+    background: linear-gradient(90deg, #4cc9f0, #00d4aa, #40916c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 1.5rem;
 }
 
@@ -637,9 +714,20 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+    background: linear-gradient(135deg, #00d4aa 0%, #0077b6 100%);
     border-radius: 10px;
     color: var(--color-text-primary);
+    box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+}
+
+.highlight-item:nth-child(2) .highlight-icon {
+    background: linear-gradient(135deg, #4cc9f0 0%, #0077b6 100%);
+    box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3);
+}
+
+.highlight-item:nth-child(3) .highlight-icon {
+    background: linear-gradient(135deg, #40916c 0%, #2d6a4f 100%);
+    box-shadow: 0 4px 15px rgba(64, 145, 108, 0.3);
 }
 
 .highlight-text h4 {
@@ -672,12 +760,16 @@ img {
     display: flex;
     gap: 1rem;
     padding: 1.5rem;
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(10, 37, 64, 0.6);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(51, 65, 85, 0.3);
+    border: 1px solid rgba(0, 212, 170, 0.2);
     border-radius: 12px;
-    border-left: 4px solid var(--color-accent);
+    border-left: 4px solid #00d4aa;
+}
+
+.education-item:nth-child(2) {
+    border-left-color: #4cc9f0;
 }
 
 .education-icon {
@@ -687,9 +779,14 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(59, 130, 246, 0.1);
+    background: rgba(0, 212, 170, 0.15);
     border-radius: 10px;
-    color: var(--color-accent);
+    color: #00d4aa;
+}
+
+.education-item:nth-child(2) .education-icon {
+    background: rgba(76, 201, 240, 0.15);
+    color: #4cc9f0;
 }
 
 .education-text h4 {
@@ -737,17 +834,30 @@ img {
     left: 0;
     right: 0;
     height: 4px;
-    background: attr(data-color);
-    background: var(--color-accent);
+    background: linear-gradient(90deg, #00d4aa, #4cc9f0, #0077b6);
     opacity: 0;
     transition: opacity var(--transition-base);
 }
 
+/* GIS-themed project card variations */
+.project-card:nth-child(1)::before { background: linear-gradient(90deg, #00d4aa, #40916c); }
+.project-card:nth-child(2)::before { background: linear-gradient(90deg, #4cc9f0, #0077b6); }
+.project-card:nth-child(3)::before { background: linear-gradient(90deg, #ff6b6b, #ffd93d); }
+.project-card:nth-child(4)::before { background: linear-gradient(90deg, #40916c, #95d5b2); }
+.project-card:nth-child(5)::before { background: linear-gradient(90deg, #0077b6, #00d4aa); }
+.project-card:nth-child(6)::before { background: linear-gradient(90deg, #ffd93d, #ff6b6b); }
+
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--color-accent);
+    box-shadow: 0 20px 40px rgba(0, 212, 170, 0.2);
+    border-color: rgba(0, 212, 170, 0.5);
 }
+
+.project-card:nth-child(2):hover { border-color: rgba(76, 201, 240, 0.5); box-shadow: 0 20px 40px rgba(76, 201, 240, 0.2); }
+.project-card:nth-child(3):hover { border-color: rgba(255, 107, 107, 0.5); box-shadow: 0 20px 40px rgba(255, 107, 107, 0.2); }
+.project-card:nth-child(4):hover { border-color: rgba(64, 145, 108, 0.5); box-shadow: 0 20px 40px rgba(64, 145, 108, 0.2); }
+.project-card:nth-child(5):hover { border-color: rgba(0, 119, 182, 0.5); box-shadow: 0 20px 40px rgba(0, 119, 182, 0.2); }
+.project-card:nth-child(6):hover { border-color: rgba(255, 217, 61, 0.5); box-shadow: 0 20px 40px rgba(255, 217, 61, 0.2); }
 
 .project-card:hover::before {
     opacity: 1;
@@ -766,21 +876,37 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(59, 130, 246, 0.1);
+    background: rgba(0, 212, 170, 0.1);
     border-radius: 12px;
-    color: var(--color-accent);
+    color: #00d4aa;
 }
+
+/* GIS-themed project icons */
+.project-card:nth-child(1) .project-icon { background: rgba(0, 212, 170, 0.15); color: #00d4aa; }
+.project-card:nth-child(2) .project-icon { background: rgba(76, 201, 240, 0.15); color: #4cc9f0; }
+.project-card:nth-child(3) .project-icon { background: rgba(255, 107, 107, 0.15); color: #ff6b6b; }
+.project-card:nth-child(4) .project-icon { background: rgba(64, 145, 108, 0.15); color: #40916c; }
+.project-card:nth-child(5) .project-icon { background: rgba(0, 119, 182, 0.15); color: #0077b6; }
+.project-card:nth-child(6) .project-icon { background: rgba(255, 217, 61, 0.15); color: #ffd93d; }
 
 .project-category {
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--color-accent);
+    color: #00d4aa;
     padding: 0.375rem 0.75rem;
-    background: rgba(59, 130, 246, 0.1);
+    background: rgba(0, 212, 170, 0.1);
     border-radius: 20px;
 }
+
+/* GIS-themed project categories */
+.project-card:nth-child(1) .project-category { background: rgba(0, 212, 170, 0.15); color: #00d4aa; }
+.project-card:nth-child(2) .project-category { background: rgba(76, 201, 240, 0.15); color: #4cc9f0; }
+.project-card:nth-child(3) .project-category { background: rgba(255, 107, 107, 0.15); color: #ff6b6b; }
+.project-card:nth-child(4) .project-category { background: rgba(64, 145, 108, 0.15); color: #40916c; }
+.project-card:nth-child(5) .project-category { background: rgba(0, 119, 182, 0.15); color: #0077b6; }
+.project-card:nth-child(6) .project-category { background: rgba(255, 217, 61, 0.15); color: #ffd93d; }
 
 .project-title {
     font-family: var(--font-primary);
@@ -840,8 +966,17 @@ img {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    color: var(--color-accent);
+    background: linear-gradient(135deg, #00d4aa, #4cc9f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
+
+/* GIS-themed category titles */
+.skills-category:nth-child(1) .category-title { background: linear-gradient(135deg, #00d4aa, #40916c); -webkit-background-clip: text; background-clip: text; }
+.skills-category:nth-child(2) .category-title { background: linear-gradient(135deg, #4cc9f0, #0077b6); -webkit-background-clip: text; background-clip: text; }
+.skills-category:nth-child(3) .category-title { background: linear-gradient(135deg, #ffd93d, #ff6b6b); -webkit-background-clip: text; background-clip: text; }
+.skills-category:nth-child(4) .category-title { background: linear-gradient(135deg, #40916c, #95d5b2); -webkit-background-clip: text; background-clip: text; }
 
 .skills-list {
     display: flex;
@@ -870,10 +1005,34 @@ img {
 .skill-progress {
     height: 100%;
     width: var(--progress);
-    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+    background: linear-gradient(90deg, #00d4aa 0%, #4cc9f0 50%, #0077b6 100%);
     border-radius: 4px;
     transition: width 1s ease-out;
+    position: relative;
+    overflow: hidden;
 }
+
+.skill-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: skillShine 2s ease-in-out infinite;
+}
+
+@keyframes skillShine {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
+}
+
+/* GIS-themed skill bar variations per category */
+.skills-category:nth-child(1) .skill-progress { background: linear-gradient(90deg, #00d4aa, #40916c, #2d6a4f); }
+.skills-category:nth-child(2) .skill-progress { background: linear-gradient(90deg, #4cc9f0, #0077b6, #023e8a); }
+.skills-category:nth-child(3) .skill-progress { background: linear-gradient(90deg, #ffd93d, #ff6b6b, #e63946); }
+.skills-category:nth-child(4) .skill-progress { background: linear-gradient(90deg, #40916c, #95d5b2, #b7e4c7); }
 
 /* ===== Contact Section ===== */
 .contact {
@@ -927,9 +1086,23 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(59, 130, 246, 0.1);
+    background: linear-gradient(135deg, rgba(0, 212, 170, 0.15), rgba(76, 201, 240, 0.15));
     border-radius: 10px;
-    color: var(--color-accent);
+    color: #00d4aa;
+}
+
+/* GIS-themed contact icons */
+.contact-method:nth-child(1) .contact-icon {
+    background: linear-gradient(135deg, rgba(0, 212, 170, 0.2), rgba(64, 145, 108, 0.1));
+    color: #00d4aa;
+}
+.contact-method:nth-child(2) .contact-icon {
+    background: linear-gradient(135deg, rgba(76, 201, 240, 0.2), rgba(0, 119, 182, 0.1));
+    color: #4cc9f0;
+}
+.contact-method:nth-child(3) .contact-icon {
+    background: linear-gradient(135deg, rgba(255, 217, 61, 0.2), rgba(255, 107, 107, 0.1));
+    color: #ffd93d;
 }
 
 .contact-details {
@@ -971,7 +1144,10 @@ img {
     font-family: var(--font-primary);
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color-accent);
+    background: linear-gradient(135deg, #00d4aa, #4cc9f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .footer-text {
@@ -997,10 +1173,16 @@ img {
 }
 
 .footer-links a:hover {
-    background: var(--color-accent);
+    background: linear-gradient(135deg, #00d4aa, #4cc9f0);
     color: var(--color-text-primary);
     transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 212, 170, 0.4);
 }
+
+/* GIS-themed footer link variations */
+.footer-links a:nth-child(1):hover { background: linear-gradient(135deg, #00d4aa, #40916c); box-shadow: 0 5px 15px rgba(0, 212, 170, 0.4); }
+.footer-links a:nth-child(2):hover { background: linear-gradient(135deg, #4cc9f0, #0077b6); box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4); }
+.footer-links a:nth-child(3):hover { background: linear-gradient(135deg, #ffd93d, #ff6b6b); box-shadow: 0 5px 15px rgba(255, 217, 61, 0.4); }
 
 /* ===== Animations ===== */
 .fade-in {
@@ -1137,5 +1319,5 @@ img {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-accent);
+    background: linear-gradient(180deg, #00d4aa, #4cc9f0);
 }
