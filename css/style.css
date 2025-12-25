@@ -466,17 +466,18 @@ body {
 /* Compass Rose */
 .compass-rose {
     position: absolute;
-    left: 5%;
-    bottom: 10%;
-    width: 120px;
-    height: 120px;
+    left: 3%;
+    bottom: 8%;
+    width: 70px;
+    height: 70px;
     pointer-events: none;
+    opacity: 0.25;
     animation: compassPulse 6s ease-in-out infinite;
 }
 
 @keyframes compassPulse {
-    0%, 100% { opacity: 0.6; transform: scale(1); }
-    50% { opacity: 0.9; transform: scale(1.05); }
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(1.02); }
 }
 
 .compass-svg {
@@ -615,11 +616,11 @@ body {
     .orbit-1 { width: 160px; height: 160px; }
     .orbit-2 { width: 180px; height: 180px; }
     .compass-rose {
-        width: 80px;
-        height: 80px;
-        left: 3%;
-        bottom: 5%;
-        opacity: 0.4;
+        width: 50px;
+        height: 50px;
+        left: 2%;
+        bottom: 3%;
+        opacity: 0.15;
     }
     .coord { font-size: 0.6rem; opacity: 0.3; }
     .map-pin { width: 20px; height: 20px; opacity: 0.5; }
