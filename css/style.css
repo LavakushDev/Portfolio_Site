@@ -1213,6 +1213,59 @@ img {
     color: var(--color-text-primary);
 }
 
+/* ===== Projects Toggle ===== */
+.project-hidden {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.projects-grid.show-all .project-hidden {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    animation: projectReveal 0.5s ease forwards;
+}
+
+@keyframes projectReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.projects-toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.projects-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+}
+
+.projects-toggle-btn .toggle-icon {
+    transition: transform var(--transition-base);
+}
+
+.projects-toggle-btn.expanded .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.projects-count {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
 /* ===== Skills Section ===== */
 .skills {
     background: linear-gradient(180deg, var(--color-bg-secondary), var(--color-bg-primary));

@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCounterAnimation();
     initActiveNavHighlight();
     initTouchOptimizations();
+    initProjectsToggle();
 });
 
 /**
@@ -30,6 +31,56 @@ function initTouchOptimizations() {
         button.addEventListener('touchend', (e) => {
             e.target.click();
         }, { passive: true });
+    });
+}
+
+/**
+ * Projects Toggle Module
+ * Handles show more/less functionality for projects section
+ */
+function initProjectsToggle() {
+    const toggleBtn = document.getElementById('projects-toggle-btn');
+    const projectsGrid = document.getElementById('projects-grid');
+    const visibleCount = document.getElementById('visible-count');
+    const toggleText = toggleBtn?.querySelector('.toggle-text');
+
+    if (!toggleBtn || !projectsGrid) return;
+
+    let isExpanded = false;
+
+    toggleBtn.addEventListener('click', () => {
+        isExpanded = !isExpanded;
+
+        if (isExpanded) {
+            projectsGrid.classList.add('show-all');
+            toggleBtn.classList.add('expanded');
+            if (toggleText) toggleText.textContent = 'Show Less';
+            if (visibleCount) visibleCount.textContent = '9';
+
+            // Trigger reveal animations for newly visible projects
+            const hiddenProjects = projectsGrid.querySelectorAll('.project-hidden');
+            hiddenProjects.forEach((project, index) => {
+                setTimeout(() => {
+                    project.classList.add('visible');
+                }, index * 100);
+            });
+        } else {
+            projectsGrid.classList.remove('show-all');
+            toggleBtn.classList.remove('expanded');
+            if (toggleText) toggleText.textContent = 'Show More Projects';
+            if (visibleCount) visibleCount.textContent = '4';
+
+            // Scroll to projects section top when collapsing
+            const projectsSection = document.getElementById('projects');
+            if (projectsSection) {
+                const navbarHeight = document.getElementById('navbar')?.offsetHeight || 0;
+                const targetPosition = projectsSection.getBoundingClientRect().top + window.scrollY - navbarHeight - 20;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
     });
 }
 
