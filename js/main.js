@@ -68,7 +68,7 @@ function initProjectsToggle() {
             projectsGrid.classList.remove('show-all');
             toggleBtn.classList.remove('expanded');
             if (toggleText) toggleText.textContent = 'Show More Projects';
-            if (visibleCount) visibleCount.textContent = '4';
+            if (visibleCount) visibleCount.textContent = '3';
 
             // Scroll to projects section top when collapsing
             const projectsSection = document.getElementById('projects');
