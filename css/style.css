@@ -911,6 +911,9 @@ img {
 }
 
 .stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: var(--color-bg-card);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -920,12 +923,19 @@ img {
     text-align: center;
     min-width: 140px;
     transition: all var(--transition-base);
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .stat-card:hover {
     transform: translateY(-5px);
     border-color: var(--color-accent);
-    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.stat-card:active {
+    transform: translateY(-2px);
 }
 
 .stat-number {
@@ -1364,6 +1374,7 @@ img {
     border-radius: 4px;
     transition: width 1.5s ease-out;
     position: relative;
+    will-change: width;
 }
 
 .skill-progress::after {
@@ -1374,12 +1385,17 @@ img {
     right: 0;
     bottom: 0;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    animation: shimmer 2s infinite;
+    animation: shimmer 1.5s ease-out 1;
+    will-change: transform;
+}
+
+.skill-progress.animated::after {
+    animation: shimmer 1.5s ease-out 1 forwards;
 }
 
 @keyframes shimmer {
     0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    100% { transform: translateX(100%); opacity: 0; }
 }
 
 .skill-bar.bar-green .skill-progress { background: linear-gradient(90deg, var(--color-green), #34d399); }
