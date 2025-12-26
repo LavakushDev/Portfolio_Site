@@ -40,6 +40,8 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 }
 
 body {
@@ -48,6 +50,16 @@ body {
     color: var(--color-text-primary);
     line-height: 1.7;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Safe area for notched devices */
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+}
+
+/* Remove tap highlight on touch devices */
+* {
+    -webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -1039,7 +1051,7 @@ img {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
     gap: 2rem;
 }
 
@@ -1640,6 +1652,8 @@ img {
 .reveal-delay-3 { transition-delay: 0.3s; }
 
 /* ===== Responsive Design ===== */
+
+/* Large tablets and small laptops */
 @media (max-width: 1024px) {
     .about-content {
         grid-template-columns: 1fr;
@@ -1658,21 +1672,32 @@ img {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
+
+    .container {
+        padding: 0 1.25rem;
+    }
 }
 
+/* Tablets */
 @media (max-width: 768px) {
+    html {
+        font-size: 15px;
+    }
+
     .nav-menu {
         position: fixed;
         top: 0;
         right: -100%;
         width: 100%;
         height: 100vh;
+        height: 100dvh; /* Dynamic viewport height for mobile browsers */
         background: var(--color-bg-primary);
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 2rem;
         transition: right var(--transition-base);
+        padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     }
 
     .nav-menu.active {
@@ -1681,15 +1706,21 @@ img {
 
     .nav-link {
         font-size: 1.5rem;
+        padding: 0.75rem 1.5rem; /* Larger touch target */
     }
 
     .nav-toggle {
         display: flex;
         z-index: 1001;
+        padding: 0.75rem; /* Larger touch target */
+        min-width: 44px;
+        min-height: 44px;
     }
 
     .hero {
         padding: 5rem 1rem 3rem;
+        min-height: 100vh;
+        min-height: 100dvh;
     }
 
     .hero-stats {
@@ -1709,12 +1740,18 @@ img {
         margin: 0 auto;
     }
 
+    .btn {
+        min-height: 48px; /* Better touch target */
+        padding: 1rem 1.75rem;
+    }
+
     .about-highlights {
         grid-template-columns: repeat(2, 1fr);
     }
 
     .projects-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .scroll-indicator {
@@ -1724,9 +1761,59 @@ img {
     .section {
         padding: 4rem 0;
     }
+
+    .section-header {
+        margin-bottom: 3rem;
+    }
+
+    .contact-card {
+        min-height: 72px; /* Better touch target */
+    }
+
+    .footer-links a {
+        min-width: 48px;
+        min-height: 48px;
+    }
 }
 
+/* Large phones */
+@media (max-width: 576px) {
+    .about-highlights {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .highlight-card {
+        padding: 1.25rem;
+    }
+
+    .highlight-card h3 {
+        font-size: 0.9rem;
+    }
+
+    .highlight-card p {
+        font-size: 0.8rem;
+    }
+
+    .project-skills {
+        padding: 0.875rem;
+    }
+
+    .skills-gained li {
+        font-size: 0.8125rem;
+    }
+}
+
+/* Small phones */
 @media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
     .hero-name {
         font-size: 2.5rem;
     }
@@ -1755,13 +1842,81 @@ img {
         padding: 1.25rem;
     }
 
+    .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
     .contact-card {
         flex-direction: column;
         text-align: center;
+        padding: 1.5rem 1rem;
     }
 
     .contact-details {
         text-align: center;
+    }
+
+    .cert-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cert-details {
+        text-align: center;
+    }
+
+    .footer-content {
+        padding: 0 1rem;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+    .hero-name {
+        font-size: 2rem;
+    }
+
+    .hero-title {
+        font-size: 1rem;
+    }
+
+    .stat-card {
+        padding: 1rem 1.25rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 0.875rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Landscape phones */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 6rem 1rem 3rem;
+    }
+
+    .hero-stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .stat-card {
+        width: auto;
+        min-width: 140px;
+    }
+
+    .nav-menu {
+        height: 100vh;
+        overflow-y: auto;
     }
 }
 
@@ -1786,4 +1941,73 @@ img {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color-accent);
+}
+
+/* ===== Reduced Motion Support ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    .skill-progress {
+        transition: none;
+    }
+
+    .page-background * {
+        animation: none !important;
+    }
+}
+
+/* ===== Pause Animations (for page visibility) ===== */
+.pause-animations *,
+.pause-animations *::before,
+.pause-animations *::after {
+    animation-play-state: paused !important;
+}
+
+/* ===== High Contrast Mode Support ===== */
+@media (prefers-contrast: high) {
+    :root {
+        --color-border: rgba(255, 255, 255, 0.5);
+    }
+
+    .project-card,
+    .skill-category,
+    .contact-card,
+    .cert-card,
+    .timeline-content,
+    .stat-card,
+    .highlight-card {
+        border-width: 2px;
+    }
+}
+
+/* ===== Print Styles ===== */
+@media print {
+    .page-background,
+    .navbar,
+    .scroll-indicator,
+    .hero-cta,
+    .footer-links {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .section {
+        page-break-inside: avoid;
+    }
 }

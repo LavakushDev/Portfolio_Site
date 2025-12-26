@@ -11,7 +11,27 @@ document.addEventListener('DOMContentLoaded', () => {
     initSkillBars();
     initCounterAnimation();
     initActiveNavHighlight();
+    initTouchOptimizations();
 });
+
+/**
+ * Touch Optimizations Module
+ * Improves touch interactions on mobile devices
+ */
+function initTouchOptimizations() {
+    // Add touch-device class for CSS targeting
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        document.body.classList.add('touch-device');
+    }
+
+    // Prevent zoom on double-tap for buttons (iOS fix)
+    const buttons = document.querySelectorAll('.btn, .nav-link, .contact-card');
+    buttons.forEach(button => {
+        button.addEventListener('touchend', (e) => {
+            e.target.click();
+        }, { passive: true });
+    });
+}
 
 /**
  * Navigation Module
@@ -50,7 +70,7 @@ function initNavigation() {
         });
     }
 
-    // Navbar scroll behavior
+    // Navbar scroll behavior (passive for better performance)
     let lastScrollY = window.scrollY;
 
     window.addEventListener('scroll', () => {
@@ -64,7 +84,7 @@ function initNavigation() {
         }
 
         lastScrollY = currentScrollY;
-    });
+    }, { passive: true });
 }
 
 /**
@@ -124,7 +144,7 @@ function initScrollReveal() {
     // Initial check
     revealOnScroll();
 
-    // Check on scroll with throttling
+    // Check on scroll with throttling (passive for better performance)
     let ticking = false;
     window.addEventListener('scroll', () => {
         if (!ticking) {
@@ -134,7 +154,7 @@ function initScrollReveal() {
             });
             ticking = true;
         }
-    });
+    }, { passive: true });
 }
 
 /**
@@ -163,7 +183,7 @@ function initSkillBars() {
     // Initial check
     setTimeout(animateSkillBars, 500);
 
-    // Check on scroll
+    // Check on scroll (passive for better performance)
     let ticking = false;
     window.addEventListener('scroll', () => {
         if (!ticking) {
@@ -173,7 +193,7 @@ function initSkillBars() {
             });
             ticking = true;
         }
-    });
+    }, { passive: true });
 }
 
 /**
@@ -219,7 +239,7 @@ function initCounterAnimation() {
     // Initial check
     setTimeout(checkCounters, 500);
 
-    // Check on scroll
+    // Check on scroll (passive for better performance)
     let ticking = false;
     window.addEventListener('scroll', () => {
         if (!ticking) {
@@ -229,7 +249,7 @@ function initCounterAnimation() {
             });
             ticking = true;
         }
-    });
+    }, { passive: true });
 }
 
 /**
@@ -263,7 +283,7 @@ function initActiveNavHighlight() {
     // Initial check
     highlightNav();
 
-    // Check on scroll with throttling
+    // Check on scroll with throttling (passive for better performance)
     let ticking = false;
     window.addEventListener('scroll', () => {
         if (!ticking) {
@@ -273,7 +293,7 @@ function initActiveNavHighlight() {
             });
             ticking = true;
         }
-    });
+    }, { passive: true });
 }
 
 /**
