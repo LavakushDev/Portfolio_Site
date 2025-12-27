@@ -28,6 +28,17 @@
     --transition-fast: 150ms ease;
     --transition-base: 300ms ease;
     --transition-slow: 500ms ease;
+
+    /* Typography Scale */
+    --font-size-xs: 0.75rem;      /* 12px */
+    --font-size-sm: 0.875rem;     /* 14px */
+    --font-size-base: 1rem;       /* 16px */
+    --font-size-md: 1.125rem;     /* 18px */
+    --font-size-lg: 1.25rem;      /* 20px */
+    --font-size-xl: 1.5rem;       /* 24px */
+    --font-size-2xl: 2rem;        /* 32px */
+    --font-size-3xl: 2.5rem;      /* 40px */
+    --font-size-4xl: 3rem;        /* 48px */
 }
 
 /* ===== Reset & Base ===== */
@@ -543,7 +554,7 @@ img {
 
 .section-tag {
     display: inline-block;
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     font-weight: 600;
     color: var(--color-accent);
     text-transform: uppercase;
@@ -553,7 +564,7 @@ img {
 
 .section-title {
     font-family: var(--font-primary);
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(var(--font-size-2xl), 5vw, var(--font-size-4xl));
     font-weight: 700;
     margin-bottom: 1rem;
     background: linear-gradient(135deg, var(--color-text-primary), var(--color-accent-light));
@@ -563,7 +574,7 @@ img {
 }
 
 .section-subtitle {
-    font-size: 1.125rem;
+    font-size: var(--font-size-md);
     color: var(--color-text-secondary);
     max-width: 600px;
     margin: 0 auto;
@@ -577,7 +588,7 @@ img {
     gap: 0.5rem;
     padding: 0.875rem 1.75rem;
     font-family: var(--font-primary);
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     font-weight: 500;
     border-radius: 10px;
     cursor: pointer;
@@ -627,7 +638,7 @@ img {
 
 .btn-large {
     padding: 1rem 2.5rem;
-    font-size: 1.125rem;
+    font-size: var(--font-size-md);
 }
 
 /* ===== Navigation ===== */
@@ -662,7 +673,7 @@ img {
 
 .nav-logo {
     font-family: var(--font-primary);
-    font-size: 1.75rem;
+    font-size: var(--font-size-xl);
     font-weight: 800;
     background: linear-gradient(135deg, var(--color-accent), var(--color-purple));
     -webkit-background-clip: text;
@@ -677,7 +688,7 @@ img {
 
 .nav-link {
     font-family: var(--font-primary);
-    font-size: 0.9375rem;
+    font-size: var(--font-size-base);
     font-weight: 500;
     color: var(--color-text-secondary);
     position: relative;
@@ -843,7 +854,7 @@ img {
 }
 
 .hero-greeting {
-    font-size: 1.125rem;
+    font-size: var(--font-size-md);
     color: var(--color-accent);
     font-weight: 500;
     margin-bottom: 0.5rem;
@@ -880,18 +891,18 @@ img {
 
 .hero-title {
     font-family: var(--font-primary);
-    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-size: clamp(var(--font-size-lg), 3vw, var(--font-size-xl));
     font-weight: 600;
     color: var(--color-text-secondary);
 }
 
 .hero-separator {
     color: var(--color-accent);
-    font-size: 1.5rem;
+    font-size: var(--font-size-xl);
 }
 
 .hero-tagline {
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
     color: var(--color-text-muted);
     margin-bottom: 2rem;
 }
@@ -941,7 +952,7 @@ img {
 .stat-number {
     display: block;
     font-family: var(--font-primary);
-    font-size: 2.5rem;
+    font-size: var(--font-size-3xl);
     font-weight: 700;
     color: var(--color-accent);
     line-height: 1;
@@ -949,7 +960,7 @@ img {
 }
 
 .stat-label {
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     color: var(--color-text-muted);
 }
 
@@ -963,7 +974,7 @@ img {
     align-items: center;
     gap: 0.5rem;
     color: var(--color-text-muted);
-    font-size: 0.75rem;
+    font-size: var(--font-size-xs);
     animation: bounce 2s ease-in-out infinite;
 }
 
@@ -995,11 +1006,11 @@ img {
 .about-text p {
     color: var(--color-text-secondary);
     margin-bottom: 1.25rem;
-    font-size: 1.0625rem;
+    font-size: var(--font-size-base);
 }
 
 .about-text .lead {
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
     color: var(--color-text-primary);
     margin-bottom: 1.5rem;
 }
@@ -1044,13 +1055,13 @@ img {
 
 .highlight-card h3 {
     font-family: var(--font-primary);
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     font-weight: 600;
     margin-bottom: 0.5rem;
 }
 
 .highlight-card p {
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     color: var(--color-text-muted);
 }
 
@@ -1127,7 +1138,7 @@ img {
 .project-icon.icon-pink { background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(236, 72, 153, 0.05)); color: var(--color-pink); }
 
 .project-category {
-    font-size: 0.75rem;
+    font-size: var(--font-size-xs);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -1148,14 +1159,14 @@ img {
 
 .project-title {
     font-family: var(--font-primary);
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
     font-weight: 600;
     margin-bottom: 0.75rem;
 }
 
 .project-description {
     color: var(--color-text-secondary);
-    font-size: 0.9375rem;
+    font-size: var(--font-size-base);
     line-height: 1.7;
     margin-bottom: 1.25rem;
 }
@@ -1169,7 +1180,7 @@ img {
 }
 
 .project-skills h4 {
-    font-size: 0.75rem;
+    font-size: var(--font-size-xs);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -1184,7 +1195,7 @@ img {
 }
 
 .skills-gained li {
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     color: var(--color-text-secondary);
     padding-left: 1rem;
     position: relative;
@@ -1209,7 +1220,7 @@ img {
 }
 
 .tech-tag {
-    font-size: 0.75rem;
+    font-size: var(--font-size-xs);
     font-weight: 500;
     padding: 0.375rem 0.75rem;
     background: var(--color-bg-tertiary);
@@ -1272,7 +1283,7 @@ img {
 }
 
 .projects-count {
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     color: var(--color-text-muted);
 }
 
@@ -1326,7 +1337,7 @@ img {
 
 .category-header h3 {
     font-family: var(--font-primary);
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
     font-weight: 600;
 }
 
@@ -1349,12 +1360,12 @@ img {
 }
 
 .skill-name {
-    font-size: 0.9375rem;
+    font-size: var(--font-size-base);
     font-weight: 500;
 }
 
 .skill-percent {
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     font-weight: 600;
     color: var(--color-accent);
 }
@@ -1418,7 +1429,7 @@ img {
     align-items: center;
     gap: 0.75rem;
     font-family: var(--font-primary);
-    font-size: 1.5rem;
+    font-size: var(--font-size-xl);
     font-weight: 600;
     color: var(--color-accent);
     margin-bottom: 2rem;
@@ -1481,7 +1492,7 @@ img {
 
 .timeline-year {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: var(--font-size-xs);
     font-weight: 600;
     color: var(--color-accent);
     background: rgba(59, 130, 246, 0.1);
@@ -1492,14 +1503,14 @@ img {
 
 .timeline-content h4 {
     font-family: var(--font-primary);
-    font-size: 1.125rem;
+    font-size: var(--font-size-md);
     font-weight: 600;
     margin-bottom: 0.5rem;
 }
 
 .timeline-institution {
     color: var(--color-text-muted);
-    font-size: 0.9375rem;
+    font-size: var(--font-size-base);
 }
 
 .timeline-achievement {
@@ -1509,7 +1520,7 @@ img {
     margin-top: 0.75rem;
     padding-top: 0.75rem;
     border-top: 1px solid var(--color-border);
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     color: var(--color-green);
 }
 
@@ -1552,19 +1563,19 @@ img {
 
 .cert-details h4 {
     font-family: var(--font-primary);
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
     font-weight: 600;
     margin-bottom: 0.25rem;
 }
 
 .cert-details p {
     color: var(--color-text-secondary);
-    font-size: 0.9375rem;
+    font-size: var(--font-size-base);
     margin-bottom: 0.5rem;
 }
 
 .cert-issuer {
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     color: var(--color-text-muted);
 }
 
@@ -1580,7 +1591,7 @@ img {
 }
 
 .contact-text {
-    font-size: 1.125rem;
+    font-size: var(--font-size-md);
     color: var(--color-text-secondary);
     margin-bottom: 2rem;
 }
@@ -1631,7 +1642,7 @@ img {
 
 .contact-label {
     display: block;
-    font-size: 0.75rem;
+    font-size: var(--font-size-xs);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--color-text-muted);
@@ -1641,7 +1652,7 @@ img {
 .contact-value {
     font-weight: 500;
     color: var(--color-text-primary);
-    font-size: 1rem;
+    font-size: var(--font-size-base);
 }
 
 /* ===== Footer ===== */
@@ -1661,7 +1672,7 @@ img {
 
 .footer-logo {
     font-family: var(--font-primary);
-    font-size: 2rem;
+    font-size: var(--font-size-2xl);
     font-weight: 800;
     background: linear-gradient(135deg, var(--color-accent), var(--color-purple));
     -webkit-background-clip: text;
@@ -1671,7 +1682,7 @@ img {
 
 .footer-text {
     color: var(--color-text-secondary);
-    font-size: 0.9375rem;
+    font-size: var(--font-size-base);
 }
 
 .footer-links {
@@ -1700,7 +1711,7 @@ img {
 
 .footer-copyright {
     color: var(--color-text-muted);
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     margin-top: 1rem;
 }
 
@@ -1749,8 +1760,16 @@ img {
 
 /* Tablets */
 @media (max-width: 768px) {
-    html {
-        font-size: 15px;
+    :root {
+        --font-size-xs: 0.7rem;
+        --font-size-sm: 0.8rem;
+        --font-size-base: 0.9rem;
+        --font-size-md: 1rem;
+        --font-size-lg: 1.125rem;
+        --font-size-xl: 1.25rem;
+        --font-size-2xl: 1.5rem;
+        --font-size-3xl: 1.75rem;
+        --font-size-4xl: 2rem;
     }
 
     .nav-menu {
@@ -1759,7 +1778,7 @@ img {
         right: -100%;
         width: 100%;
         height: 100vh;
-        height: 100dvh; /* Dynamic viewport height for mobile browsers */
+        height: 100dvh;
         background: var(--color-bg-primary);
         flex-direction: column;
         justify-content: center;
@@ -1774,14 +1793,14 @@ img {
     }
 
     .nav-link {
-        font-size: 1.5rem;
-        padding: 0.75rem 1.5rem; /* Larger touch target */
+        font-size: var(--font-size-xl);
+        padding: 0.75rem 1.5rem;
     }
 
     .nav-toggle {
         display: flex;
         z-index: 1001;
-        padding: 0.75rem; /* Larger touch target */
+        padding: 0.75rem;
         min-width: 44px;
         min-height: 44px;
     }
@@ -1796,12 +1815,12 @@ img {
     }
 
     .hero-name {
-        font-size: 2.5rem;
+        font-size: var(--font-size-3xl);
         margin-bottom: 0.5rem;
     }
 
     .hero-tagline {
-        font-size: 1rem;
+        font-size: var(--font-size-base);
         margin-bottom: 1.5rem;
     }
 
@@ -1822,12 +1841,12 @@ img {
     }
 
     .stat-number {
-        font-size: 1.75rem;
+        font-size: var(--font-size-2xl);
         margin-bottom: 0.25rem;
     }
 
     .stat-label {
-        font-size: 0.7rem;
+        font-size: var(--font-size-xs);
     }
 
     .hero-cta {
@@ -1841,7 +1860,7 @@ img {
     .btn {
         min-height: 44px;
         padding: 0.875rem 1.5rem;
-        font-size: 0.9rem;
+        font-size: var(--font-size-base);
     }
 
     .about-highlights {
@@ -1865,10 +1884,6 @@ img {
         margin-bottom: 2rem;
     }
 
-    .section-title {
-        font-size: 1.75rem;
-    }
-
     .contact-card {
         min-height: 64px;
     }
@@ -1881,6 +1896,18 @@ img {
 
 /* Large phones */
 @media (max-width: 576px) {
+    :root {
+        --font-size-xs: 0.65rem;
+        --font-size-sm: 0.75rem;
+        --font-size-base: 0.85rem;
+        --font-size-md: 0.95rem;
+        --font-size-lg: 1rem;
+        --font-size-xl: 1.125rem;
+        --font-size-2xl: 1.375rem;
+        --font-size-3xl: 1.5rem;
+        --font-size-4xl: 1.75rem;
+    }
+
     .about-highlights {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
@@ -1890,27 +1917,23 @@ img {
         padding: 1.25rem;
     }
 
-    .highlight-card h3 {
-        font-size: 0.9rem;
-    }
-
-    .highlight-card p {
-        font-size: 0.8rem;
-    }
-
     .project-skills {
         padding: 0.875rem;
-    }
-
-    .skills-gained li {
-        font-size: 0.8125rem;
     }
 }
 
 /* Small phones */
 @media (max-width: 480px) {
-    html {
-        font-size: 14px;
+    :root {
+        --font-size-xs: 0.6rem;
+        --font-size-sm: 0.7rem;
+        --font-size-base: 0.8rem;
+        --font-size-md: 0.875rem;
+        --font-size-lg: 0.95rem;
+        --font-size-xl: 1rem;
+        --font-size-2xl: 1.25rem;
+        --font-size-3xl: 1.375rem;
+        --font-size-4xl: 1.5rem;
     }
 
     .container {
@@ -1921,14 +1944,6 @@ img {
         padding: 4.5rem 0.875rem 1.5rem;
     }
 
-    .hero-name {
-        font-size: 2rem;
-    }
-
-    .hero-title {
-        font-size: 0.9rem;
-    }
-
     .hero-title-container {
         flex-direction: column;
         gap: 0.25rem;
@@ -1936,11 +1951,6 @@ img {
 
     .hero-separator {
         display: none;
-    }
-
-    .hero-tagline {
-        font-size: 0.875rem;
-        margin-bottom: 1rem;
     }
 
     .hero-stats {
@@ -1954,14 +1964,6 @@ img {
         padding: 0.75rem 0.5rem;
     }
 
-    .stat-number {
-        font-size: 1.5rem;
-    }
-
-    .stat-label {
-        font-size: 0.65rem;
-    }
-
     .hero-cta {
         gap: 0.5rem;
         max-width: 280px;
@@ -1969,7 +1971,6 @@ img {
 
     .btn {
         padding: 0.75rem 1.25rem;
-        font-size: 0.85rem;
     }
 
     .about-highlights {
@@ -1983,10 +1984,6 @@ img {
 
     .section {
         padding: 2.5rem 0;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
     }
 
     .section-header {
@@ -2004,14 +2001,6 @@ img {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
-    }
-
-    .project-title {
-        font-size: 1.1rem;
-    }
-
-    .project-description {
-        font-size: 0.875rem;
     }
 
     .contact-card {
@@ -2040,16 +2029,16 @@ img {
 
 /* Extra small phones */
 @media (max-width: 360px) {
-    .hero-name {
-        font-size: 1.75rem;
-    }
-
-    .hero-title {
-        font-size: 0.8rem;
-    }
-
-    .hero-tagline {
-        font-size: 0.8rem;
+    :root {
+        --font-size-xs: 0.55rem;
+        --font-size-sm: 0.65rem;
+        --font-size-base: 0.75rem;
+        --font-size-md: 0.8rem;
+        --font-size-lg: 0.875rem;
+        --font-size-xl: 0.95rem;
+        --font-size-2xl: 1.125rem;
+        --font-size-3xl: 1.25rem;
+        --font-size-4xl: 1.375rem;
     }
 
     .stat-card {
@@ -2058,17 +2047,8 @@ img {
         padding: 0.625rem 0.375rem;
     }
 
-    .stat-number {
-        font-size: 1.25rem;
-    }
-
-    .stat-label {
-        font-size: 0.6rem;
-    }
-
     .btn {
         padding: 0.625rem 1rem;
-        font-size: 0.8rem;
     }
 
     .about-highlights {
@@ -2088,14 +2068,6 @@ img {
     .highlight-icon svg {
         width: 20px;
         height: 20px;
-    }
-
-    .highlight-card h3 {
-        font-size: 0.75rem;
-    }
-
-    .highlight-card p {
-        font-size: 0.65rem;
     }
 }
 
@@ -2118,10 +2090,6 @@ img {
         min-width: 100px;
         max-width: 130px;
         padding: 0.75rem 1rem;
-    }
-
-    .stat-number {
-        font-size: 1.5rem;
     }
 
     .nav-menu {
