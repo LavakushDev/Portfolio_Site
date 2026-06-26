@@ -81,27 +81,23 @@
                                     <rect width="110" height="88" fill="url(#grid)"/>
                                     <!-- Scan line -->
                                     <rect class="gis-scan" x="0" y="0" width="110" height="1.5" fill="rgba(249,115,22,0.25)"/>
-                                    <!-- Australia outline (simplified, Perth=left side) -->
+                                    <!-- Australia outline (projected: x=3+(lon-110)*2, y=3+(latS-8)*2.1) -->
                                     <path class="aus-path"
-                                          d="M 8,14 L 28,8 L 52,6 L 72,8 L 88,14 L 98,22 L 102,34 L 100,48 L 96,58 L 90,66 L 80,72 L 66,76 L 52,76 L 38,72 L 24,64 L 14,54 L 8,42 L 6,28 Z"/>
-                                    <!-- Perth position on map: west coast ~(8,54) -->
-                                    <!-- Crosshair lines through Perth -->
-                                    <line x1="0"   y1="54" x2="110" y2="54" stroke="rgba(249,115,22,0.12)" stroke-width="0.6"/>
-                                    <line x1="8"   y1="0"  x2="8"   y2="88" stroke="rgba(249,115,22,0.12)" stroke-width="0.6"/>
-                                    <!-- Crosshair arms -->
-                                    <line x1="0"  y1="54" x2="4"  y2="54" stroke="rgba(249,115,22,0.7)" stroke-width="1"/>
-                                    <line x1="12" y1="54" x2="18" y2="54" stroke="rgba(249,115,22,0.7)" stroke-width="1"/>
-                                    <line x1="8"  y1="48" x2="8"  y2="44" stroke="rgba(249,115,22,0.7)" stroke-width="1"/>
-                                    <line x1="8"  y1="60" x2="8"  y2="64" stroke="rgba(249,115,22,0.7)" stroke-width="1"/>
+                                          d="M 10,57 L 24,57 L 38,51 L 48,51 L 52,57 L 56,53 L 61,61 L 64,64 L 73,65 L 80,61 L 82,55 L 87,41 L 81,32 L 72,19 L 65,6 L 62,8 L 62,13 L 58,19 L 53,21 L 52,13 L 46,8 L 42,9 L 38,15 L 24,21 L 11,32 L 7,38 L 14,53 Z"/>
+                                    <!-- Perth: 115.86°E 31.95°S → (14,53) -->
+                                    <line x1="0"  y1="53" x2="110" y2="53" stroke="rgba(249,115,22,0.12)" stroke-width="0.6"/>
+                                    <line x1="14" y1="0"  x2="14"  y2="88" stroke="rgba(249,115,22,0.12)" stroke-width="0.6"/>
+                                    <line x1="0"  y1="53" x2="5"  y2="53" stroke="rgba(249,115,22,0.7)" stroke-width="1"/>
+                                    <line x1="17" y1="53" x2="23" y2="53" stroke="rgba(249,115,22,0.7)" stroke-width="1"/>
+                                    <line x1="14" y1="47" x2="14" y2="43" stroke="rgba(249,115,22,0.7)" stroke-width="1"/>
+                                    <line x1="14" y1="59" x2="14" y2="63" stroke="rgba(249,115,22,0.7)" stroke-width="1"/>
                                     <!-- Pulse rings (CSS animated) -->
-                                    <circle class="gis-ring r1" cx="8" cy="54" r="6"  fill="none" stroke="rgba(249,115,22,0.9)" stroke-width="0.9"/>
-                                    <circle class="gis-ring r2" cx="8" cy="54" r="6"  fill="none" stroke="rgba(249,115,22,0.9)" stroke-width="0.9"/>
-                                    <circle class="gis-ring r3" cx="8" cy="54" r="6"  fill="none" stroke="rgba(249,115,22,0.9)" stroke-width="0.9"/>
+                                    <circle class="gis-ring r1" cx="14" cy="53" r="6" fill="none" stroke="rgba(249,115,22,0.9)" stroke-width="0.9"/>
+                                    <circle class="gis-ring r2" cx="14" cy="53" r="6" fill="none" stroke="rgba(249,115,22,0.9)" stroke-width="0.9"/>
+                                    <circle class="gis-ring r3" cx="14" cy="53" r="6" fill="none" stroke="rgba(249,115,22,0.9)" stroke-width="0.9"/>
                                     <!-- Perth dot -->
-                                    <circle cx="8" cy="54" r="2.5" fill="#F97316" filter="url(#glow-dot)"/>
-                                    <!-- Perth label -->
-                                    <text x="14" y="52" font-size="5.5" fill="rgba(249,115,22,0.75)" font-family="monospace" font-weight="700">PERTH</text>
-                                    <!-- Coord labels -->
+                                    <circle cx="14" cy="53" r="2.5" fill="#F97316" filter="url(#glow-dot)"/>
+                                    <text x="17" y="51" font-size="5.5" fill="rgba(249,115,22,0.75)" font-family="monospace" font-weight="700">PERTH</text>
                                     <text x="1"  y="86" font-size="4.5" fill="rgba(249,115,22,0.4)" font-family="monospace">31.95°S</text>
                                     <text x="60" y="86" font-size="4.5" fill="rgba(249,115,22,0.4)" font-family="monospace">115.86°E</text>
                                 </svg>
