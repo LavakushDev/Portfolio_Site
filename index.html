@@ -3,117 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Lavakush - GIS Analyst & IT Professional Portfolio">
+    <meta name="description" content="GIS Analyst and IT Professional based in Perth, Australia. Specialist in ArcGIS, FME automation, Python scripting, and enterprise IT systems. View portfolio.">
     <meta name="author" content="Lavakush">
-    <meta name="theme-color" content="#0a0e17">
+    <meta name="theme-color" content="#08080f">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Lavakush | GIS Analyst & IT Professional</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- GIS Animated Background -->
+    <a href="#home" class="skip-link">Skip to main content</a>
+
+    <!-- Background -->
     <div class="page-background">
-        <div class="gradient-mesh"></div>
-        <div class="floating-orbs">
-            <div class="orb orb-1"></div>
-            <div class="orb orb-2"></div>
-            <div class="orb orb-3"></div>
-            <div class="orb orb-4"></div>
-        </div>
-        <div class="grid-pattern"></div>
-        <div class="animated-lines">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-        </div>
-        <div class="particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
-        <!-- Earth Globe -->
-        <div class="earth-container">
-            <div class="earth">
-                <div class="earth-glow"></div>
-                <div class="earth-sphere">
-                    <div class="continent continent-1"></div>
-                    <div class="continent continent-2"></div>
-                    <div class="continent continent-3"></div>
-                </div>
-                <div class="earth-grid">
-                    <div class="latitude lat-1"></div>
-                    <div class="latitude lat-2"></div>
-                    <div class="latitude lat-3"></div>
-                    <div class="longitude lng-1"></div>
-                    <div class="longitude lng-2"></div>
-                    <div class="longitude lng-3"></div>
-                </div>
-            </div>
-            <div class="satellite-orbit orbit-1">
-                <div class="satellite"></div>
-            </div>
-            <div class="satellite-orbit orbit-2">
-                <div class="satellite"></div>
-            </div>
-        </div>
-        <!-- Compass Rose -->
-        <div class="compass-rose">
-            <svg viewBox="0 0 100 100" class="compass-svg">
-                <circle cx="50" cy="50" r="48" fill="none" stroke="rgba(59, 130, 246, 0.2)" stroke-width="1"/>
-                <circle cx="50" cy="50" r="35" fill="none" stroke="rgba(139, 92, 246, 0.15)" stroke-width="1"/>
-                <circle cx="50" cy="50" r="20" fill="none" stroke="rgba(59, 130, 246, 0.1)" stroke-width="1"/>
-                <polygon points="50,5 45,25 50,20 55,25" fill="#3b82f6" opacity="0.8"/>
-                <polygon points="50,95 45,75 50,80 55,75" fill="#8b5cf6" opacity="0.5"/>
-                <polygon points="5,50 25,45 20,50 25,55" fill="#8b5cf6" opacity="0.5"/>
-                <polygon points="95,50 75,45 80,50 75,55" fill="#8b5cf6" opacity="0.5"/>
-                <line x1="50" y1="10" x2="50" y2="90" stroke="rgba(59, 130, 246, 0.2)" stroke-width="0.5"/>
-                <line x1="10" y1="50" x2="90" y2="50" stroke="rgba(59, 130, 246, 0.2)" stroke-width="0.5"/>
-                <text x="50" y="3" text-anchor="middle" fill="#3b82f6" font-size="6" font-family="Poppins">N</text>
-                <text x="50" y="99" text-anchor="middle" fill="#8b5cf6" font-size="5" font-family="Poppins">S</text>
-                <text x="3" y="52" text-anchor="middle" fill="#8b5cf6" font-size="5" font-family="Poppins">W</text>
-                <text x="97" y="52" text-anchor="middle" fill="#8b5cf6" font-size="5" font-family="Poppins">E</text>
-            </svg>
-        </div>
-        <!-- Coordinate Labels -->
-        <div class="coord-labels">
-            <span class="coord coord-1">37.7749° N</span>
-            <span class="coord coord-2">122.4194° W</span>
-            <span class="coord coord-3">-33.8688° S</span>
-            <span class="coord coord-4">151.2093° E</span>
-        </div>
-        <!-- Map Pins -->
-        <div class="map-pins">
-            <div class="map-pin pin-1">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                    <circle cx="12" cy="10" r="3"/>
-                </svg>
-            </div>
-            <div class="map-pin pin-2">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                    <circle cx="12" cy="10" r="3"/>
-                </svg>
-            </div>
-            <div class="map-pin pin-3">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                    <circle cx="12" cy="10" r="3"/>
-                </svg>
-            </div>
-        </div>
+        <div class="bg-base"></div>
+        <div class="bg-glow bg-glow-orange"></div>
+        <div class="bg-glow bg-glow-blue"></div>
+        <div class="dot-grid"></div>
+        <canvas id="coords-canvas" aria-hidden="true"></canvas>
         <div class="noise-overlay"></div>
         <div class="vignette"></div>
     </div>
@@ -130,6 +41,9 @@
                 <li><a href="#education" class="nav-link">Education</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+            <div class="nav-actions">
+                <a href="#contact" class="btn-nav-cta">Get In Touch</a>
+            </div>
             <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
                 <span class="hamburger"></span>
             </button>
@@ -138,37 +52,104 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text reveal">
-                <p class="hero-greeting">Hello, I'm</p>
-                <h1 class="hero-name">Lavakush</h1>
-                <div class="hero-title-container">
-                    <h2 class="hero-title">GIS Analyst</h2>
-                    <span class="hero-separator">|</span>
-                    <h2 class="hero-title">IT Professional</h2>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <div class="hero-text reveal">
+                        <p class="hero-overline">Hello, I'm</p>
+                        <h1 class="hero-name">Lavakush</h1>
+                        <div class="hero-title-row">
+                            <h2 class="hero-role">GIS Analyst</h2>
+                            <span class="hero-sep">|</span>
+                            <h2 class="hero-role">IT Professional</h2>
+                        </div>
+                        <p class="hero-tagline">Transforming spatial data into actionable insights</p>
+                        <!-- GIS Perth Location Widget -->
+                        <div class="gis-location-widget" aria-label="Location: Perth, Western Australia">
+                            <div class="gis-map-mini" aria-hidden="true">
+                                <svg viewBox="0 0 110 88" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <pattern id="grid" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+                                            <path d="M 22 0 L 0 0 0 22" fill="none" stroke="rgba(249,115,22,0.12)" stroke-width="0.5"/>
+                                        </pattern>
+                                        <filter id="glow-dot" x="-50%" y="-50%" width="200%" height="200%">
+                                            <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                        </filter>
+                                    </defs>
+                                    <!-- Grid -->
+                                    <rect width="110" height="88" fill="url(#grid)"/>
+                                    <!-- Scan line -->
+                                    <rect class="gis-scan" x="0" y="0" width="110" height="1.5" fill="rgba(249,115,22,0.25)"/>
+                                    <!-- Australia outline (simplified, Perth=left side) -->
+                                    <path class="aus-path"
+                                          d="M 8,14 L 28,8 L 52,6 L 72,8 L 88,14 L 98,22 L 102,34 L 100,48 L 96,58 L 90,66 L 80,72 L 66,76 L 52,76 L 38,72 L 24,64 L 14,54 L 8,42 L 6,28 Z"/>
+                                    <!-- Perth position on map: west coast ~(8,54) -->
+                                    <!-- Crosshair lines through Perth -->
+                                    <line x1="0"   y1="54" x2="110" y2="54" stroke="rgba(249,115,22,0.12)" stroke-width="0.6"/>
+                                    <line x1="8"   y1="0"  x2="8"   y2="88" stroke="rgba(249,115,22,0.12)" stroke-width="0.6"/>
+                                    <!-- Crosshair arms -->
+                                    <line x1="0"  y1="54" x2="4"  y2="54" stroke="rgba(249,115,22,0.7)" stroke-width="1"/>
+                                    <line x1="12" y1="54" x2="18" y2="54" stroke="rgba(249,115,22,0.7)" stroke-width="1"/>
+                                    <line x1="8"  y1="48" x2="8"  y2="44" stroke="rgba(249,115,22,0.7)" stroke-width="1"/>
+                                    <line x1="8"  y1="60" x2="8"  y2="64" stroke="rgba(249,115,22,0.7)" stroke-width="1"/>
+                                    <!-- Pulse rings (CSS animated) -->
+                                    <circle class="gis-ring r1" cx="8" cy="54" r="6"  fill="none" stroke="rgba(249,115,22,0.9)" stroke-width="0.9"/>
+                                    <circle class="gis-ring r2" cx="8" cy="54" r="6"  fill="none" stroke="rgba(249,115,22,0.9)" stroke-width="0.9"/>
+                                    <circle class="gis-ring r3" cx="8" cy="54" r="6"  fill="none" stroke="rgba(249,115,22,0.9)" stroke-width="0.9"/>
+                                    <!-- Perth dot -->
+                                    <circle cx="8" cy="54" r="2.5" fill="#F97316" filter="url(#glow-dot)"/>
+                                    <!-- Perth label -->
+                                    <text x="14" y="52" font-size="5.5" fill="rgba(249,115,22,0.75)" font-family="monospace" font-weight="700">PERTH</text>
+                                    <!-- Coord labels -->
+                                    <text x="1"  y="86" font-size="4.5" fill="rgba(249,115,22,0.4)" font-family="monospace">31.95°S</text>
+                                    <text x="60" y="86" font-size="4.5" fill="rgba(249,115,22,0.4)" font-family="monospace">115.86°E</text>
+                                </svg>
+                            </div>
+                            <div class="gis-data">
+                                <div class="gis-label">LOCATION</div>
+                                <div class="gis-city-name">Perth, WA</div>
+                                <div class="gis-country">Western Australia</div>
+                                <div class="gis-coords">
+                                    <span class="gis-coord">31.9505° S</span>
+                                    <span class="gis-coord-sep">·</span>
+                                    <span class="gis-coord">115.8605° E</span>
+                                </div>
+                                <div class="gis-status-row">
+                                    <span class="gis-dot-blink"></span>
+                                    <span class="gis-active-label">SIGNAL ACTIVE</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-cta">
+                            <a href="#projects" class="btn btn-primary">
+                                View My Work
+                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <a href="#contact" class="btn btn-outline">Contact Me</a>
+                        </div>
+                    </div>
+                    <div class="hero-stats reveal reveal-delay-1">
+                        <a href="#projects" class="stat-card">
+                            <span class="stat-number" data-count="8">8</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </a>
+                        <a href="#skills" class="stat-card">
+                            <span class="stat-number" data-count="16">16</span>
+                            <span class="stat-label">Technical Skills</span>
+                        </a>
+                        <a href="#education" class="stat-card">
+                            <span class="stat-number" data-count="2">2</span>
+                            <span class="stat-label">Degrees Earned</span>
+                        </a>
+                    </div>
                 </div>
-                <p class="hero-tagline">Transforming spatial data into actionable insights</p>
-                <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary">
-                        <span>View My Work</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                <div class="hero-visual reveal reveal-delay-2">
+                    <div class="hero-photo-ring">
+                        <div class="hero-photo-glow"></div>
+                        <img src="images/profile.png" alt="Lavakush Arrabothu — GIS Analyst & IT Professional" class="hero-photo" loading="eager" decoding="async">
+                    </div>
                 </div>
-            </div>
-            <div class="hero-stats reveal reveal-delay-1">
-                <a href="#projects" class="stat-card">
-                    <span class="stat-number" data-count="9">9</span>
-                    <span class="stat-label">Projects Completed</span>
-                </a>
-                <a href="#skills" class="stat-card">
-                    <span class="stat-number" data-count="15">15</span>
-                    <span class="stat-label">Technical Skills</span>
-                </a>
-                <a href="#education" class="stat-card">
-                    <span class="stat-number" data-count="2">2</span>
-                    <span class="stat-label">Degrees Earned</span>
-                </a>
             </div>
         </div>
         <a href="#about" class="scroll-indicator">
@@ -210,31 +191,31 @@
                 <div class="about-highlights reveal reveal-delay-1">
                     <div class="highlight-card">
                         <div class="highlight-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                         </div>
                         <h3>GIS & Mapping</h3>
                         <p>ArcGIS, FME, spatial analysis & web portals</p>
                     </div>
                     <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                        <div class="highlight-icon highlight-icon-blue">
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
                         </div>
                         <h3>IT Infrastructure</h3>
                         <p>Servers, Azure, Active Directory & Intune</p>
                     </div>
                     <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        <div class="highlight-icon highlight-icon-purple">
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
                         </div>
                         <h3>Automation</h3>
                         <p>Python, PowerShell & FME workflows</p>
                     </div>
                     <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                        <div class="highlight-icon highlight-icon-green">
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
                         </div>
                         <h3>Data & Analytics</h3>
-                        <p>Power BI, SQL & data visualization</p>
+                        <p>Power BI, SQL & Excel</p>
                     </div>
                 </div>
             </div>
@@ -254,18 +235,14 @@
                 <article class="project-card reveal">
                     <div class="project-header">
                         <div class="project-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                         </div>
                         <span class="project-category">Automation</span>
                     </div>
-                    <h3 class="project-title">BYDA Automatic Reply System</h3>
-                    <p class="project-description">
-                        Developed an automated PDF reply system to streamline processing of XML/GML data and map generation.
-                        Implemented IMAP-triggered automations and integrated scripts to dynamically update projects,
-                        export PDF layouts, and email results automatically.
-                    </p>
+                    <h3 class="project-title">BYDA — Automated Reply System</h3>
+                    <p class="project-description">Developed an automated PDF reply system to streamline processing of XML/GML data and map generation. Implemented IMAP-triggered automations and integrated scripts to dynamically update projects, export PDF layouts, and email results automatically.</p>
                     <div class="project-skills">
-                        <h4>Skills Developed:</h4>
+                        <h4>Skills Developed</h4>
                         <ul class="skills-gained">
                             <li>FME Automation Workflows</li>
                             <li>Python (ArcPy) Scripting</li>
@@ -286,18 +263,14 @@
                 <article class="project-card reveal reveal-delay-1">
                     <div class="project-header">
                         <div class="project-icon icon-green">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
                         </div>
                         <span class="project-category category-green">Data Analytics</span>
                     </div>
                     <h3 class="project-title">Graffiti Dataset Automation</h3>
-                    <p class="project-description">
-                        Automated backup of incident data from ArcGIS Online to ESRI Geodatabase. Created workflows
-                        to generate charts and monthly reports automatically emailed to stakeholders. Designed
-                        interactive dashboards for real-time visualization and trend analysis.
-                    </p>
+                    <p class="project-description">Automated backup of incident data from ArcGIS Online to ESRI Geodatabase. Created workflows to generate charts and monthly reports automatically emailed to stakeholders. Designed interactive dashboards for real-time visualization and trend analysis.</p>
                     <div class="project-skills">
-                        <h4>Skills Developed:</h4>
+                        <h4>Skills Developed</h4>
                         <ul class="skills-gained">
                             <li>ArcGIS Online Administration</li>
                             <li>Dashboard Design</li>
@@ -318,18 +291,14 @@
                 <article class="project-card reveal reveal-delay-2">
                     <div class="project-header">
                         <div class="project-icon icon-orange">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                         </div>
                         <span class="project-category category-orange">Security</span>
                     </div>
                     <h3 class="project-title">SSO Implementation (SAML)</h3>
-                    <p class="project-description">
-                        Implemented Single Sign-On for ArcGIS Enterprise and ArcGIS Online using SAML authentication.
-                        Configured identity providers, integrated SAML protocols, ensuring consistent login experiences
-                        across GIS platforms while enhancing security.
-                    </p>
+                    <p class="project-description">Implemented Single Sign-On for ArcGIS Enterprise and ArcGIS Online using SAML authentication. Configured identity providers and integrated SAML protocols to deliver consistent login experiences across GIS platforms with improved security posture.</p>
                     <div class="project-skills">
-                        <h4>Skills Developed:</h4>
+                        <h4>Skills Developed</h4>
                         <ul class="skills-gained">
                             <li>SAML Authentication</li>
                             <li>Identity Provider Configuration</li>
@@ -350,18 +319,14 @@
                 <article class="project-card reveal project-hidden">
                     <div class="project-header">
                         <div class="project-icon icon-red">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
                         </div>
                         <span class="project-category category-red">Device Management</span>
                     </div>
                     <h3 class="project-title">Intune Deployment & Management</h3>
-                    <p class="project-description">
-                        Led end-to-end deployment of Microsoft Intune for mobile devices and laptops, ensuring
-                        seamless device management and compliance with security policies. Strengthened device
-                        security and streamlined management across the organization.
-                    </p>
+                    <p class="project-description">Led end-to-end deployment of Microsoft Intune for mobile devices and laptops, ensuring seamless device management and compliance with security policies. Strengthened device security and streamlined management across the organization.</p>
                     <div class="project-skills">
-                        <h4>Skills Developed:</h4>
+                        <h4>Skills Developed</h4>
                         <ul class="skills-gained">
                             <li>Microsoft Intune Administration</li>
                             <li>Mobile Device Management</li>
@@ -378,23 +343,18 @@
                     </div>
                 </article>
 
-                <!-- Hidden Projects (4-9) -->
                 <!-- Project 5 -->
                 <article class="project-card reveal project-hidden">
                     <div class="project-header">
                         <div class="project-icon icon-purple">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
                         </div>
                         <span class="project-category category-purple">Web GIS</span>
                     </div>
                     <h3 class="project-title">Tourism Web Portal</h3>
-                    <p class="project-description">
-                        Designed and developed an online ArcGIS web portal to promote local tourism, enabling users
-                        to access interactive maps, download PDFs, and interact with integrated spatial data for
-                        intuitive navigation experience.
-                    </p>
+                    <p class="project-description">Designed and developed an online ArcGIS web portal to promote local tourism, enabling users to access interactive maps, download PDFs, and interact with integrated spatial data for an intuitive navigation experience.</p>
                     <div class="project-skills">
-                        <h4>Skills Developed:</h4>
+                        <h4>Skills Developed</h4>
                         <ul class="skills-gained">
                             <li>ArcGIS Web App Development</li>
                             <li>User Experience Design</li>
@@ -414,23 +374,19 @@
                 <article class="project-card reveal project-hidden">
                     <div class="project-header">
                         <div class="project-icon icon-cyan">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
                         </div>
                         <span class="project-category category-cyan">Data Integration</span>
                     </div>
                     <h3 class="project-title">IntraMaps Data Integration</h3>
-                    <p class="project-description">
-                        Managed the integration and updating of spatial data from external sources into IntraMaps
-                        for local use, ensuring stakeholders had access to accurate and current mapping information
-                        for decision-making.
-                    </p>
+                    <p class="project-description">Managed the integration and updating of spatial data from external sources into IntraMaps for local use, ensuring stakeholders had access to accurate and current mapping information for decision-making.</p>
                     <div class="project-skills">
-                        <h4>Skills Developed:</h4>
+                        <h4>Skills Developed</h4>
                         <ul class="skills-gained">
                             <li>IntraMaps Configuration</li>
                             <li>Data ETL Processes</li>
                             <li>Spatial Data Validation</li>
-                            <li>Stakeholder Communication</li>
+                            <li>Spatial Data QA/QC</li>
                             <li>Data Quality Assurance</li>
                         </ul>
                     </div>
@@ -438,7 +394,7 @@
                         <span class="tech-tag">IntraMaps</span>
                         <span class="tech-tag">FME</span>
                         <span class="tech-tag">SQL</span>
-                        <span class="tech-tag">Data WA</span>
+                        <span class="tech-tag">data.wa.gov.au</span>
                     </div>
                 </article>
 
@@ -446,24 +402,20 @@
                 <article class="project-card reveal project-hidden">
                     <div class="project-header">
                         <div class="project-icon icon-yellow">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
                         </div>
                         <span class="project-category category-yellow">Business Intelligence</span>
                     </div>
                     <h3 class="project-title">IT Budget Dashboard</h3>
-                    <p class="project-description">
-                        Developed a dynamic Power BI dashboard displaying organizational structure and annual budget.
-                        Enabled real-time tracking of available budget within the year, improving transparency and
-                        decision-making for IT planning and resource allocation.
-                    </p>
+                    <p class="project-description">Developed a dynamic Power BI dashboard displaying organizational structure and annual budget. Enabled real-time tracking of available budget within the year, improving transparency and decision-making for IT planning and resource allocation.</p>
                     <div class="project-skills">
-                        <h4>Skills Developed:</h4>
+                        <h4>Skills Developed</h4>
                         <ul class="skills-gained">
                             <li>Power BI Dashboard Design</li>
                             <li>DAX Formulas</li>
                             <li>Data Visualization</li>
                             <li>Budget Analysis</li>
-                            <li>Real-time Reporting</li>
+                            <li>Automated Data Refresh</li>
                         </ul>
                     </div>
                     <div class="project-tech">
@@ -478,18 +430,14 @@
                 <article class="project-card reveal project-hidden">
                     <div class="project-header">
                         <div class="project-icon icon-teal">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
                         </div>
                         <span class="project-category category-teal">Infrastructure</span>
                     </div>
                     <h3 class="project-title">Server Health Monitoring System</h3>
-                    <p class="project-description">
-                        Developed an automated alert system to monitor server health, triggering notifications
-                        in case of server downtime or backup failures. Enhanced system reliability and reduced
-                        response time to critical issues.
-                    </p>
+                    <p class="project-description">Developed an automated alert system to monitor server health, triggering notifications in case of server downtime or backup failures. Enhanced system reliability and reduced response time to critical issues.</p>
                     <div class="project-skills">
-                        <h4>Skills Developed:</h4>
+                        <h4>Skills Developed</h4>
                         <ul class="skills-gained">
                             <li>Server Monitoring</li>
                             <li>Alert System Development</li>
@@ -504,46 +452,14 @@
                         <span class="tech-tag">Monitoring Tools</span>
                     </div>
                 </article>
-
-                <!-- Project 9 -->
-                <article class="project-card reveal project-hidden">
-                    <div class="project-header">
-                        <div class="project-icon icon-pink">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
-                        </div>
-                        <span class="project-category category-pink">Data Management</span>
-                    </div>
-                    <h3 class="project-title">Product Data Organization</h3>
-                    <p class="project-description">
-                        Organized and cleaned large datasets including product images, descriptions, and specifications
-                        to ensure data accuracy. Standardized and formatted data, then uploaded to e-commerce platform
-                        ensuring seamless integration and accurate product display.
-                    </p>
-                    <div class="project-skills">
-                        <h4>Skills Developed:</h4>
-                        <ul class="skills-gained">
-                            <li>Data Cleaning & Validation</li>
-                            <li>Data Standardization</li>
-                            <li>E-commerce Integration</li>
-                            <li>Quality Assurance</li>
-                            <li>Large Dataset Management</li>
-                        </ul>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Excel</span>
-                        <span class="tech-tag">Data Cleaning</span>
-                        <span class="tech-tag">ETL</span>
-                        <span class="tech-tag">CMS</span>
-                    </div>
-                </article>
             </div>
-            <!-- Show More Button -->
+
             <div class="projects-toggle reveal">
-                <button class="btn btn-secondary projects-toggle-btn" id="projects-toggle-btn">
+                <button class="btn btn-outline projects-toggle-btn" id="projects-toggle-btn">
                     <span class="toggle-text">Show More Projects</span>
-                    <svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    <svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
-                <span class="projects-count">Showing <span id="visible-count">3</span> of 9 projects</span>
+                <span class="projects-count">Showing <span id="visible-count">3</span> of 8 projects</span>
             </div>
         </div>
     </section>
@@ -557,162 +473,110 @@
                 <p class="section-subtitle">Tools and technologies I work with professionally</p>
             </div>
             <div class="skills-grid">
-                <!-- Geospatial Tools -->
                 <div class="skill-category reveal">
                     <div class="category-header">
                         <div class="category-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                         </div>
                         <h3>Geospatial Tools</h3>
                     </div>
                     <div class="skill-list">
                         <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">ArcGIS Pro</span>
-                                <span class="skill-percent">80%</span>
-                            </div>
-                            <div class="skill-bar"><div class="skill-progress" data-progress="95"></div></div>
+                            <div class="skill-info"><span class="skill-name">ArcGIS Pro</span><span class="skill-percent">75%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" data-progress="75"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">ArcGIS Online</span>
-                                <span class="skill-percent">90%</span>
-                            </div>
+                            <div class="skill-info"><span class="skill-name">ArcGIS Online</span><span class="skill-percent">80%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" data-progress="80"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-name">FME Form</span><span class="skill-percent">90%</span></div>
                             <div class="skill-bar"><div class="skill-progress" data-progress="90"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">FME Form</span>
-                                <span class="skill-percent">90%</span>
-                            </div>
-                            <div class="skill-bar"><div class="skill-progress" data-progress="90"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">FME Flow</span>
-                                <span class="skill-percent">85%</span>
-                            </div>
+                            <div class="skill-info"><span class="skill-name">FME Flow</span><span class="skill-percent">85%</span></div>
                             <div class="skill-bar"><div class="skill-progress" data-progress="85"></div></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Programming & Scripting -->
                 <div class="skill-category reveal reveal-delay-1">
                     <div class="category-header">
                         <div class="category-icon icon-green">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
                         </div>
                         <h3>Programming & Scripting</h3>
                     </div>
                     <div class="skill-list">
                         <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Python</span>
-                                <span class="skill-percent">90%</span>
-                            </div>
-                            <div class="skill-bar bar-green"><div class="skill-progress" data-progress="90"></div></div>
+                            <div class="skill-info"><span class="skill-name">Python</span><span class="skill-percent">75%</span></div>
+                            <div class="skill-bar bar-green"><div class="skill-progress" data-progress="75"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">ArcPy</span>
-                                <span class="skill-percent">88%</span>
-                            </div>
-                            <div class="skill-bar bar-green"><div class="skill-progress" data-progress="88"></div></div>
+                            <div class="skill-info"><span class="skill-name">ArcPy</span><span class="skill-percent">80%</span></div>
+                            <div class="skill-bar bar-green"><div class="skill-progress" data-progress="80"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">SQL</span>
-                                <span class="skill-percent">85%</span>
-                            </div>
+                            <div class="skill-info"><span class="skill-name">SQL</span><span class="skill-percent">85%</span></div>
                             <div class="skill-bar bar-green"><div class="skill-progress" data-progress="85"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">PowerShell</span>
-                                <span class="skill-percent">40%</span>
-                            </div>
-                            <div class="skill-bar bar-green"><div class="skill-progress" data-progress="75"></div></div>
+                            <div class="skill-info"><span class="skill-name">PowerShell</span><span class="skill-percent">40%</span></div>
+                            <div class="skill-bar bar-green"><div class="skill-progress" data-progress="40"></div></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Data Analysis & Reporting -->
                 <div class="skill-category reveal reveal-delay-2">
                     <div class="category-header">
                         <div class="category-icon icon-purple">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
                         </div>
                         <h3>Data Analysis & Reporting</h3>
                     </div>
                     <div class="skill-list">
                         <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Power BI</span>
-                                <span class="skill-percent">88%</span>
-                            </div>
+                            <div class="skill-info"><span class="skill-name">Power BI</span><span class="skill-percent">88%</span></div>
                             <div class="skill-bar bar-purple"><div class="skill-progress" data-progress="88"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Excel (Advanced)</span>
-                                <span class="skill-percent">90%</span>
-                            </div>
+                            <div class="skill-info"><span class="skill-name">Excel (Advanced)</span><span class="skill-percent">90%</span></div>
                             <div class="skill-bar bar-purple"><div class="skill-progress" data-progress="90"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Data Visualization</span>
-                                <span class="skill-percent">85%</span>
-                            </div>
+                            <div class="skill-info"><span class="skill-name">Data Visualization</span><span class="skill-percent">85%</span></div>
                             <div class="skill-bar bar-purple"><div class="skill-progress" data-progress="85"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Report Design</span>
-                                <span class="skill-percent">85%</span>
-                            </div>
+                            <div class="skill-info"><span class="skill-name">Report Design</span><span class="skill-percent">85%</span></div>
                             <div class="skill-bar bar-purple"><div class="skill-progress" data-progress="85"></div></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- IT Systems & Security -->
                 <div class="skill-category reveal">
                     <div class="category-header">
                         <div class="category-icon icon-orange">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                         </div>
                         <h3>IT Systems & Security</h3>
                     </div>
                     <div class="skill-list">
                         <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Microsoft Intune</span>
-                                <span class="skill-percent">85%</span>
-                            </div>
+                            <div class="skill-info"><span class="skill-name">Microsoft Intune</span><span class="skill-percent">70%</span></div>
+                            <div class="skill-bar bar-orange"><div class="skill-progress" data-progress="70"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-name">Active Directory</span><span class="skill-percent">85%</span></div>
                             <div class="skill-bar bar-orange"><div class="skill-progress" data-progress="85"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Active Directory</span>
-                                <span class="skill-percent">85%</span>
-                            </div>
-                            <div class="skill-bar bar-orange"><div class="skill-progress" data-progress="85"></div></div>
+                            <div class="skill-info"><span class="skill-name">Azure</span><span class="skill-percent">60%</span></div>
+                            <div class="skill-bar bar-orange"><div class="skill-progress" data-progress="60"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Azure</span>
-                                <span class="skill-percent">80%</span>
-                            </div>
-                            <div class="skill-bar bar-orange"><div class="skill-progress" data-progress="80"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">System Administration</span>
-                                <span class="skill-percent">85%</span>
-                            </div>
-                            <div class="skill-bar bar-orange"><div class="skill-progress" data-progress="85"></div></div>
+                            <div class="skill-info"><span class="skill-name">System Administration</span><span class="skill-percent">75%</span></div>
+                            <div class="skill-bar bar-orange"><div class="skill-progress" data-progress="75"></div></div>
                         </div>
                     </div>
                 </div>
@@ -730,7 +594,7 @@
             <div class="education-grid">
                 <div class="education-column">
                     <h3 class="column-title reveal">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
                         Education
                     </h3>
                     <div class="timeline">
@@ -741,7 +605,7 @@
                                 <h4>Master's in Information Technology</h4>
                                 <p class="timeline-institution">La Trobe University, Australia</p>
                                 <div class="timeline-achievement">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
                                     Golden Key International Honour Society Member
                                 </div>
                             </div>
@@ -758,18 +622,18 @@
                 </div>
                 <div class="education-column">
                     <h3 class="column-title reveal">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
                         Certifications
                     </h3>
                     <div class="certifications-list">
                         <div class="cert-card reveal">
                             <div class="cert-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
                             </div>
                             <div class="cert-details">
                                 <h4>CCENT</h4>
                                 <p>Cisco Certified Entry Network Technician</p>
-                                <span class="cert-issuer">Cisco | August 2017</span>
+                                <span class="cert-issuer">Cisco · 2017</span>
                             </div>
                         </div>
                     </div>
@@ -788,14 +652,11 @@
             </div>
             <div class="contact-content reveal">
                 <div class="contact-info">
-                    <p class="contact-text">
-                        I'm always open to discussing new projects, creative ideas, or opportunities
-                        to be part of your vision. Feel free to reach out!
-                    </p>
+                    <p class="contact-text">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out!</p>
                     <div class="contact-methods">
-                        <a href="mailto:Lavakush.Arrabothu@outlook.com" class="contact-card">
+                        <a href="#" data-email="TGF2YWt1c2guQXJyYWJvdGh1QG91dGxvb2suY29t" class="contact-card">
                             <div class="contact-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                             </div>
                             <div class="contact-details">
                                 <span class="contact-label">Email</span>
@@ -804,17 +665,26 @@
                         </a>
                         <a href="https://www.linkedin.com/in/lavakush-arrabothu-8b96287a/" target="_blank" rel="noopener noreferrer" class="contact-card">
                             <div class="contact-icon icon-linkedin">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                             </div>
                             <div class="contact-details">
                                 <span class="contact-label">LinkedIn</span>
                                 <span class="contact-value">Connect with me</span>
                             </div>
                         </a>
+                        <a href="https://github.com/GeopandaDev" target="_blank" rel="noopener noreferrer" class="contact-card">
+                            <div class="contact-icon icon-github">
+                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            </div>
+                            <div class="contact-details">
+                                <span class="contact-label">GitHub</span>
+                                <span class="contact-value">View my code</span>
+                            </div>
+                        </a>
                     </div>
-                    <a href="mailto:Lavakush.Arrabothu@outlook.com" class="btn btn-primary btn-large">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                        <span>Send Me an Email</span>
+                    <a href="#" data-email="TGF2YWt1c2guQXJyYWJvdGh1QG91dGxvb2suY29t" class="btn btn-primary btn-large">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        Send Me an Email
                     </a>
                 </div>
             </div>
@@ -828,18 +698,27 @@
                 <div class="footer-logo">L.A</div>
                 <p class="footer-text">Lavakush | GIS Analyst & IT Professional</p>
                 <div class="footer-links">
-                    <a href="mailto:Lavakush.Arrabothu@outlook.com" aria-label="Email">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <a href="#" data-email="TGF2YWt1c2guQXJyYWJvdGh1QG91dGxvb2suY29t" aria-label="Email" class="social-link">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                     </a>
-                    <a href="https://www.linkedin.com/in/lavakush-arrabothu-8b96287a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    <a href="https://www.linkedin.com/in/lavakush-arrabothu-8b96287a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-link">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="https://github.com/GeopandaDev" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                     </a>
                 </div>
-                <p class="footer-copyright">&copy; 2025 Lavakush. All rights reserved.</p>
+                <p class="footer-copyright">&copy; 2025 Lavakush Arrabothu. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        document.querySelectorAll('[data-email]').forEach(el => {
+            const addr = atob(el.dataset.email);
+            el.href = 'mailto:' + addr;
+        });
+    </script>
 </body>
 </html>

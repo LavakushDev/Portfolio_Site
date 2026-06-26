@@ -1,108 +1,28 @@
-/**
- * Resume Portfolio - Main JavaScript
- * SPA Navigation, Smooth Scrolling, and Animations
- */
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize all modules
     initNavigation();
     initSmoothScroll();
     initScrollReveal();
     initSkillBars();
-    initCounterAnimation();
-    initActiveNavHighlight();
-    initTouchOptimizations();
+    initCounters();
     initProjectsToggle();
+    initCoordsBg();
 });
 
-/**
- * Touch Optimizations Module
- * Improves touch interactions on mobile devices
- */
-function initTouchOptimizations() {
-    // Add touch-device class for CSS targeting
-    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-        document.body.classList.add('touch-device');
-    }
-
-    // Prevent zoom on double-tap for buttons (iOS fix)
-    const buttons = document.querySelectorAll('.btn, .nav-link, .contact-card');
-    buttons.forEach(button => {
-        button.addEventListener('touchend', (e) => {
-            e.target.click();
-        }, { passive: true });
-    });
-}
-
-/**
- * Projects Toggle Module
- * Handles show more/less functionality for projects section
- */
-function initProjectsToggle() {
-    const toggleBtn = document.getElementById('projects-toggle-btn');
-    const projectsGrid = document.getElementById('projects-grid');
-    const visibleCount = document.getElementById('visible-count');
-    const toggleText = toggleBtn?.querySelector('.toggle-text');
-
-    if (!toggleBtn || !projectsGrid) return;
-
-    let isExpanded = false;
-
-    toggleBtn.addEventListener('click', () => {
-        isExpanded = !isExpanded;
-
-        if (isExpanded) {
-            projectsGrid.classList.add('show-all');
-            toggleBtn.classList.add('expanded');
-            if (toggleText) toggleText.textContent = 'Show Less';
-            if (visibleCount) visibleCount.textContent = '9';
-
-            // Trigger reveal animations for newly visible projects
-            const hiddenProjects = projectsGrid.querySelectorAll('.project-hidden');
-            hiddenProjects.forEach((project, index) => {
-                setTimeout(() => {
-                    project.classList.add('visible');
-                }, index * 100);
-            });
-        } else {
-            projectsGrid.classList.remove('show-all');
-            toggleBtn.classList.remove('expanded');
-            if (toggleText) toggleText.textContent = 'Show More Projects';
-            if (visibleCount) visibleCount.textContent = '3';
-
-            // Scroll to projects section top when collapsing
-            const projectsSection = document.getElementById('projects');
-            if (projectsSection) {
-                const navbarHeight = document.getElementById('navbar')?.offsetHeight || 0;
-                const targetPosition = projectsSection.getBoundingClientRect().top + window.scrollY - navbarHeight - 20;
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }
-    });
-}
-
-/**
- * Navigation Module
- * Handles mobile menu toggle and navbar scroll behavior
- */
+/* ==========================================
+   NAVIGATION
+   ========================================== */
 function initNavigation() {
-    const navbar = document.getElementById('navbar');
+    const navbar   = document.getElementById('navbar');
     const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
+    const navMenu  = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Mobile menu toggle
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', () => {
             navToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
             document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
         });
-
-        // Close menu when clicking a link
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navToggle.classList.remove('active');
@@ -110,8 +30,6 @@ function initNavigation() {
                 document.body.style.overflow = '';
             });
         });
-
-        // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
                 navToggle.classList.remove('active');
@@ -121,275 +39,284 @@ function initNavigation() {
         });
     }
 
-    // Navbar scroll behavior (passive for better performance)
-    let lastScrollY = window.scrollY;
-
     window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
-
-        // Add/remove scrolled class
-        if (currentScrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-
-        lastScrollY = currentScrollY;
+        navbar.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
+
+    // Active link highlight
+    const sections = document.querySelectorAll('section[id]');
+    const highlight = () => {
+        const scrollY = window.scrollY;
+        const navH = navbar ? navbar.offsetHeight : 0;
+        sections.forEach(section => {
+            const top = section.offsetTop - navH - 80;
+            const bottom = top + section.offsetHeight;
+            const id = section.getAttribute('id');
+            if (scrollY >= top && scrollY < bottom) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) link.classList.add('active');
+                });
+            }
+        });
+    };
+    window.addEventListener('scroll', highlight, { passive: true });
+    highlight();
 }
 
-/**
- * Smooth Scroll Module
- * Implements smooth scrolling for anchor links
- */
+/* ==========================================
+   SMOOTH SCROLL
+   ========================================== */
 function initSmoothScroll() {
-    const links = document.querySelectorAll('a[href^="#"]');
-
-    links.forEach(link => {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
-
-            // Skip if it's just "#"
             if (href === '#') return;
-
             const target = document.querySelector(href);
-
             if (target) {
                 e.preventDefault();
-
-                const navbarHeight = document.getElementById('navbar').offsetHeight;
-                const targetPosition = target.getBoundingClientRect().top + window.scrollY - navbarHeight;
-
+                const navH = document.getElementById('navbar')?.offsetHeight || 0;
                 window.scrollTo({
-                    top: targetPosition,
+                    top: target.getBoundingClientRect().top + window.scrollY - navH,
                     behavior: 'smooth'
                 });
-
-                // Update URL without jumping
                 history.pushState(null, null, href);
             }
         });
     });
 }
 
-/**
- * Scroll Reveal Module
- * Animates elements when they come into view
- */
+/* ==========================================
+   SCROLL REVEAL
+   ========================================== */
 function initScrollReveal() {
-    const revealElements = document.querySelectorAll('.reveal');
-
-    const revealOnScroll = () => {
-        const windowHeight = window.innerHeight;
-        const revealPoint = 100;
-
-        revealElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-
-            if (elementTop < windowHeight - revealPoint) {
-                element.classList.add('visible');
-            }
+    const els = document.querySelectorAll('.reveal');
+    const check = () => {
+        const wh = window.innerHeight;
+        els.forEach(el => {
+            if (el.getBoundingClientRect().top < wh - 80) el.classList.add('visible');
         });
     };
-
-    // Initial check
-    revealOnScroll();
-
-    // Check on scroll with throttling (passive for better performance)
-    let ticking = false;
+    check();
+    let tick = false;
     window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                revealOnScroll();
-                ticking = false;
-            });
-            ticking = true;
+        if (!tick) {
+            requestAnimationFrame(() => { check(); tick = false; });
+            tick = true;
         }
     }, { passive: true });
 }
 
-/**
- * Skill Bars Animation Module
- * Animates skill progress bars when visible
- */
+/* ==========================================
+   SKILL BARS
+   ========================================== */
 function initSkillBars() {
-    const skillBars = document.querySelectorAll('.skill-progress');
+    const bars = document.querySelectorAll('.skill-progress[data-progress]');
+    if (!bars.length) return;
 
-    const animateSkillBars = () => {
-        skillBars.forEach(bar => {
-            const parent = bar.closest('.skill-category');
-            if (!parent) return;
-
-            const parentTop = parent.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-
-            if (parentTop < windowHeight - 100 && !bar.classList.contains('animated')) {
-                const progress = bar.getAttribute('data-progress');
-                bar.style.width = progress + '%';
-                bar.classList.add('animated');
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target;
+                bar.style.width = bar.dataset.progress + '%';
+                io.unobserve(bar);
             }
         });
-    };
+    }, { threshold: 0.3 });
 
-    // Initial check
-    setTimeout(animateSkillBars, 500);
-
-    // Check on scroll (passive for better performance)
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                animateSkillBars();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }, { passive: true });
+    bars.forEach(bar => io.observe(bar));
 }
 
-/**
- * Counter Animation Module
- * Animates number counters in stat cards
- */
-function initCounterAnimation() {
+/* ==========================================
+   STAT COUNTERS
+   ========================================== */
+function initCounters() {
     const counters = document.querySelectorAll('.stat-number[data-count]');
+    if (!counters.length) return;
 
-    const animateCounter = (counter) => {
-        const target = parseInt(counter.getAttribute('data-count'));
-        const duration = 2000;
-        const step = target / (duration / 16);
-        let current = 0;
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const target = parseInt(el.dataset.count, 10);
+            const duration = 1200;
+            const step = 16;
+            const increment = target / (duration / step);
+            let current = 0;
 
-        const updateCounter = () => {
-            current += step;
-            if (current < target) {
-                counter.textContent = Math.floor(current);
-                requestAnimationFrame(updateCounter);
-            } else {
-                counter.textContent = target + '+';
-            }
-        };
-
-        updateCounter();
-    };
-
-    const checkCounters = () => {
-        counters.forEach(counter => {
-            if (counter.classList.contains('counted')) return;
-
-            const rect = counter.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-
-            if (rect.top < windowHeight - 100) {
-                counter.classList.add('counted');
-                animateCounter(counter);
-            }
+            const tick = () => {
+                current = Math.min(current + increment, target);
+                el.textContent = Math.round(current);
+                if (current < target) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+            io.unobserve(el);
         });
-    };
+    }, { threshold: 0.5 });
 
-    // Initial check
-    setTimeout(checkCounters, 500);
-
-    // Check on scroll (passive for better performance)
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                checkCounters();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }, { passive: true });
+    counters.forEach(el => io.observe(el));
 }
 
-/**
- * Active Navigation Highlight Module
- * Highlights the current section in navigation
- */
-function initActiveNavHighlight() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
+/* ==========================================
+   PROJECTS SHOW MORE / LESS
+   ========================================== */
+function initProjectsToggle() {
+    const btn        = document.getElementById('projects-toggle-btn');
+    const countEl    = document.getElementById('visible-count');
+    const hiddenCards = document.querySelectorAll('.project-card.project-hidden');
+    const total      = document.querySelectorAll('.project-card').length;
+    const initial    = total - hiddenCards.length;
 
-    const highlightNav = () => {
-        const scrollY = window.scrollY;
-        const navbarHeight = document.getElementById('navbar').offsetHeight;
+    if (!btn || !hiddenCards.length) return;
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - navbarHeight - 100;
-            const sectionBottom = sectionTop + section.offsetHeight;
-            const sectionId = section.getAttribute('id');
+    let expanded = false;
 
-            if (scrollY >= sectionTop && scrollY < sectionBottom) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
+    btn.addEventListener('click', () => {
+        expanded = !expanded;
+
+        hiddenCards.forEach(card => {
+            card.classList.toggle('show-card', expanded);
         });
-    };
 
-    // Initial check
-    highlightNav();
-
-    // Check on scroll with throttling (passive for better performance)
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                highlightNav();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }, { passive: true });
+        btn.classList.toggle('expanded', expanded);
+        btn.querySelector('.toggle-text').textContent = expanded ? 'Show Less' : 'Show More Projects';
+        if (countEl) countEl.textContent = expanded ? total : initial;
+    });
 }
 
-/**
- * Utility: Throttle function for performance
- */
-function throttle(func, limit) {
-    let inThrottle;
-    return function(...args) {
-        if (!inThrottle) {
-            func.apply(this, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    };
-}
+/* ==========================================
+   FLOATING GIS COORDINATES BACKGROUND
+   ========================================== */
+function initCoordsBg() {
+    const canvas = document.getElementById('coords-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const COUNT = 28;
+    let labels = [];
+    let paused = false;
 
-/**
- * Utility: Debounce function for performance
- */
-function debounce(func, wait) {
-    let timeout;
-    return function(...args) {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(this, args), wait);
-    };
-}
-
-// Handle page visibility changes for animations
-document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-        // Pause animations when page is not visible
-        document.body.classList.add('pause-animations');
-    } else {
-        // Resume animations when page becomes visible
-        document.body.classList.remove('pause-animations');
+    // WA / Perth region coordinate pool
+    function randCoord() {
+        const lat = -(28 + Math.random() * 8);   // -28 to -36 (SW Australia)
+        const lon =  113 + Math.random() * 8;    // 113 to 121 (WA)
+        const latStr = Math.abs(lat).toFixed(4) + '° S';
+        const lonStr = lon.toFixed(4) + '° E';
+        const forms = [
+            `${latStr}  ${lonStr}`,
+            `LAT ${lat.toFixed(4)}  LON ${lon.toFixed(4)}`,
+            `${lat.toFixed(4)}, ${lon.toFixed(4)}`,
+            `${latStr} · ${lonStr}`,
+            `WGS84  ${lat.toFixed(3)}  ${lon.toFixed(3)}`,
+            `MGA2020  ${latStr}  ${lonStr}`,
+        ];
+        return forms[Math.floor(Math.random() * forms.length)];
     }
+
+    function resize() {
+        canvas.width  = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    function spawnLabel(offscreen = false) {
+        const side = Math.random();
+        let x, y, vx, vy;
+        const speed = 0.18 + Math.random() * 0.28;
+        const angle = (Math.random() - 0.5) * 0.4;  // mostly horizontal
+
+        if (offscreen) {
+            // start from a random edge
+            if (side < 0.5) {
+                x = -220; y = Math.random() * canvas.height;
+            } else {
+                x = Math.random() * canvas.width; y = canvas.height + 20;
+            }
+        } else {
+            x = Math.random() * canvas.width;
+            y = Math.random() * canvas.height;
+        }
+        vx = speed * Math.cos(angle);
+        vy = -speed * Math.sin(angle) + (Math.random() - 0.5) * 0.08;
+
+        return {
+            x, y, vx, vy,
+            text: randCoord(),
+            fontSize: 9 + Math.floor(Math.random() * 5),
+            maxOpacity: 0.055 + Math.random() * 0.085,
+            opacity: offscreen ? 0 : Math.random() * 0.1,
+            phase: offscreen ? 'in' : 'hold',
+            holdLeft: 300 + Math.random() * 600,
+            fadeSpeed: 0.0008 + Math.random() * 0.0012,
+        };
+    }
+
+    function init() {
+        resize();
+        labels = Array.from({ length: COUNT }, () => spawnLabel(false));
+    }
+
+    function tick() {
+        if (!paused) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.textBaseline = 'top';
+
+            for (let i = 0; i < labels.length; i++) {
+                const l = labels[i];
+                l.x += l.vx;
+                l.y += l.vy;
+
+                // Fade lifecycle
+                if (l.phase === 'in') {
+                    l.opacity += l.fadeSpeed;
+                    if (l.opacity >= l.maxOpacity) { l.opacity = l.maxOpacity; l.phase = 'hold'; }
+                } else if (l.phase === 'hold') {
+                    l.holdLeft--;
+                    if (l.holdLeft <= 0) l.phase = 'out';
+                } else {
+                    l.opacity -= l.fadeSpeed;
+                    if (l.opacity <= 0) labels[i] = spawnLabel(true);
+                }
+
+                // Off-screen cull
+                const w = ctx.measureText(l.text).width;
+                if (l.x > canvas.width + 240 || l.x + w < -240 ||
+                    l.y > canvas.height + 30 || l.y < -30) {
+                    labels[i] = spawnLabel(true);
+                    continue;
+                }
+
+                ctx.save();
+                ctx.globalAlpha = Math.max(0, l.opacity);
+                ctx.font = `${l.fontSize}px "Courier New", monospace`;
+                ctx.fillStyle = '#F97316';
+                ctx.fillText(l.text, l.x, l.y);
+                ctx.restore();
+            }
+        }
+        requestAnimationFrame(tick);
+    }
+
+    init();
+    tick();
+
+    window.addEventListener('resize', () => { resize(); }, { passive: true });
+
+    document.addEventListener('visibilitychange', () => {
+        paused = document.hidden;
+    });
+}
+
+/* ==========================================
+   KEYBOARD / VISIBILITY
+   ========================================== */
+document.addEventListener('visibilitychange', () => {
+    document.body.classList.toggle('pause-animations', document.hidden);
 });
 
-// Keyboard navigation support
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         const navToggle = document.getElementById('nav-toggle');
-        const navMenu = document.getElementById('nav-menu');
-
-        if (navMenu && navMenu.classList.contains('active')) {
+        const navMenu   = document.getElementById('nav-menu');
+        if (navMenu?.classList.contains('active')) {
             navToggle.classList.remove('active');
             navMenu.classList.remove('active');
             document.body.style.overflow = '';
