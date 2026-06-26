@@ -226,11 +226,6 @@ body {
     background: rgba(249,115,22,0.08);
     color: var(--accent);
 }
-.btn-large {
-    padding: 0.85rem 2rem;
-    font-size: var(--size-base);
-    margin-top: 2rem;
-}
 
 /* ==========================================
    NAVBAR
