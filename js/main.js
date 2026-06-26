@@ -80,7 +80,6 @@ function initSmoothScroll() {
                     top: target.getBoundingClientRect().top + window.scrollY - navH,
                     behavior: 'smooth'
                 });
-                history.pushState(null, null, href);
             }
         });
     });
