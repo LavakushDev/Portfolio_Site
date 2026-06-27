@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="GIS Analyst and IT Professional based in Perth, Australia. Specialist in ArcGIS, FME automation, Python scripting, and enterprise IT systems. View portfolio.">
     <meta name="author" content="Lavakush">
-    <meta name="theme-color" content="#08080f">
+    <meta name="theme-color" content="#ffffff">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Lavakush | GIS Analyst & IT Professional</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,17 +16,15 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <a href="#home" class="skip-link">Skip to main content</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Background -->
     <div class="page-background">
         <div class="bg-base"></div>
         <div class="bg-glow bg-glow-orange"></div>
         <div class="bg-glow bg-glow-blue"></div>
-        <div class="dot-grid"></div>
+        <canvas id="gis-world-bg" aria-hidden="true"></canvas>
         <canvas id="coords-canvas" aria-hidden="true"></canvas>
-        <div class="noise-overlay"></div>
-        <div class="vignette"></div>
     </div>
 
     <!-- Navigation -->
@@ -50,6 +48,7 @@
         </div>
     </nav>
 
+    <main id="main-content">
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
@@ -59,64 +58,11 @@
                         <p class="hero-overline">Hello, I'm</p>
                         <h1 class="hero-name">Lavakush</h1>
                         <div class="hero-title-row">
-                            <h2 class="hero-role">GIS Analyst</h2>
+                            <span class="hero-role">GIS Analyst</span>
                             <span class="hero-sep">|</span>
-                            <h2 class="hero-role">IT Professional</h2>
+                            <span class="hero-role">IT Professional</span>
                         </div>
                         <p class="hero-tagline">Transforming spatial data into actionable insights</p>
-                        <!-- GIS Perth Location Widget -->
-                        <div class="gis-location-widget" aria-label="Location: Perth, Western Australia">
-                            <div class="gis-map-mini" aria-hidden="true">
-                                <svg viewBox="0 0 110 88" xmlns="http://www.w3.org/2000/svg">
-                                    <defs>
-                                        <pattern id="grid" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
-                                            <path d="M 22 0 L 0 0 0 22" fill="none" stroke="rgba(249,115,22,0.12)" stroke-width="0.5"/>
-                                        </pattern>
-                                        <filter id="glow-dot" x="-50%" y="-50%" width="200%" height="200%">
-                                            <feGaussianBlur stdDeviation="2.5" result="blur"/>
-                                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                                        </filter>
-                                    </defs>
-                                    <!-- Grid -->
-                                    <rect width="110" height="88" fill="url(#grid)"/>
-                                    <!-- Scan line -->
-                                    <rect class="gis-scan" x="0" y="0" width="110" height="1.5" fill="rgba(249,115,22,0.25)"/>
-                                    <!-- Australia outline (projected: x=3+(lon-110)*2, y=3+(latS-8)*2.1) -->
-                                    <path class="aus-path"
-                                          d="M 10,57 L 24,57 L 38,51 L 48,51 L 52,57 L 56,53 L 61,61 L 64,64 L 73,65 L 80,61 L 82,55 L 87,41 L 81,32 L 72,19 L 65,6 L 62,8 L 62,13 L 58,19 L 53,21 L 52,13 L 46,8 L 42,9 L 38,15 L 24,21 L 11,32 L 7,38 L 14,53 Z"/>
-                                    <!-- Perth: 115.86°E 31.95°S → (14,53) -->
-                                    <line x1="0"  y1="53" x2="110" y2="53" stroke="rgba(249,115,22,0.12)" stroke-width="0.6"/>
-                                    <line x1="14" y1="0"  x2="14"  y2="88" stroke="rgba(249,115,22,0.12)" stroke-width="0.6"/>
-                                    <line x1="0"  y1="53" x2="5"  y2="53" stroke="rgba(249,115,22,0.7)" stroke-width="1"/>
-                                    <line x1="17" y1="53" x2="23" y2="53" stroke="rgba(249,115,22,0.7)" stroke-width="1"/>
-                                    <line x1="14" y1="47" x2="14" y2="43" stroke="rgba(249,115,22,0.7)" stroke-width="1"/>
-                                    <line x1="14" y1="59" x2="14" y2="63" stroke="rgba(249,115,22,0.7)" stroke-width="1"/>
-                                    <!-- Pulse rings (CSS animated) -->
-                                    <circle class="gis-ring r1" cx="14" cy="53" r="6" fill="none" stroke="rgba(249,115,22,0.9)" stroke-width="0.9"/>
-                                    <circle class="gis-ring r2" cx="14" cy="53" r="6" fill="none" stroke="rgba(249,115,22,0.9)" stroke-width="0.9"/>
-                                    <circle class="gis-ring r3" cx="14" cy="53" r="6" fill="none" stroke="rgba(249,115,22,0.9)" stroke-width="0.9"/>
-                                    <!-- Perth dot -->
-                                    <circle cx="14" cy="53" r="2.5" fill="#F97316" filter="url(#glow-dot)"/>
-                                    <text x="17" y="51" font-size="5.5" fill="rgba(249,115,22,0.75)" font-family="monospace" font-weight="700">PERTH</text>
-                                    <text x="1"  y="86" font-size="4.5" fill="rgba(249,115,22,0.4)" font-family="monospace">31.95°S</text>
-                                    <text x="60" y="86" font-size="4.5" fill="rgba(249,115,22,0.4)" font-family="monospace">115.86°E</text>
-                                </svg>
-                            </div>
-                            <div class="gis-data">
-                                <div class="gis-label">LOCATION</div>
-                                <div class="gis-city-name">Perth, WA</div>
-                                <div class="gis-country">Western Australia</div>
-                                <div class="gis-coords">
-                                    <span class="gis-coord">31.9505° S</span>
-                                    <span class="gis-coord-sep">·</span>
-                                    <span class="gis-coord">115.8605° E</span>
-                                </div>
-                                <div class="gis-status-row">
-                                    <span class="gis-dot-blink"></span>
-                                    <span class="gis-active-label">SIGNAL ACTIVE</span>
-                                </div>
-                            </div>
-                        </div>
                         <div class="hero-cta">
                             <a href="#projects" class="btn btn-primary">
                                 View My Work
@@ -141,10 +87,7 @@
                     </div>
                 </div>
                 <div class="hero-visual reveal reveal-delay-2">
-                    <div class="hero-photo-ring">
-                        <div class="hero-photo-glow"></div>
-                        <img src="images/profile.png" alt="Lavakush Arrabothu — GIS Analyst & IT Professional" class="hero-photo" loading="eager" decoding="async">
-                    </div>
+                    <img src="images/profile.png" alt="Lavakush Arrabothu — GIS Analyst & IT Professional" class="hero-photo" loading="eager" decoding="async">
                 </div>
             </div>
         </div>
@@ -674,6 +617,8 @@
         </div>
     </section>
 
+    </main>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -693,6 +638,7 @@
         </div>
     </footer>
 
+    <script src="js/gis-bg.js" defer></script>
     <script src="js/main.js"></script>
 </body>
 </html>
